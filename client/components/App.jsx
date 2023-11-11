@@ -7,11 +7,16 @@ import '../styles.css'
 
 const App = () => {
   return (
+    <Router>
     <div>
+    <Header></Header>
+    <SideNav></SideNav>
 {  /*    <Header/> 
   <SideNav/> */}
   <p>Hi</p>
     </div>
+    </Router>
+
   )
 }
 
