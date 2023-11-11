@@ -19,6 +19,7 @@ mongoose.connection.once('open', () => {
 
 //endpoints for handling user login or user signup
 app.use('/', (req, res)=> {
+    //index.html
     res.status(200).sendFile(path.join(__dirname, '../index.html'))
 })
 app.use('/login', userRouter);
