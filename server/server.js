@@ -2,6 +2,9 @@ const express = require('express')
 const app = express();
 const PORT = 3000;
 const userRouter = require('./router/userRouter');
+const itemRouter = require('./router/itemRouter');
+const path = require('path')
+//install path
 
 
 const mongoose = require('mongoose')
@@ -15,8 +18,14 @@ mongoose.connection.once('open', () => {
   });
 
 //endpoints for handling user login or user signup
+app.use('/', (req, res)=> {
+    res.status(200).sendFile(path.join(__dirname, '../index.html'))
+})
 app.use('/login', userRouter);
 // app.use('/signup', userRouter);
+
+app.use('/create-listing', itemRouter)
+
 
 app.use('*', (err, req, res, next) => {
     const defaultErr = {
