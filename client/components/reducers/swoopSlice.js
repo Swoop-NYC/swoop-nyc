@@ -2,7 +2,7 @@ import {createSlice,current} from '@reduxjs/toolkit'
 
 export const swoopSlice = createSlice({
     name: 'swoop',
-    initalState: {
+    initialState: {
         currentUser: {},
         items: [],
         isLoggedIn: false
@@ -20,7 +20,10 @@ export const swoopSlice = createSlice({
             state.currentUser = User
         },
     }
-
 });
+
+export const {addItem, userLogIn} = swoopSlice.actions
+
+export default swoopSlice.reducer
 
 

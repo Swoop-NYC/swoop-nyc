@@ -23,15 +23,10 @@ app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
 app.use('/', (req, res)=> {
-    console.log('error in the /')
-    res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
+    res.status(200).sendFile(path.join(__dirname, '../index.html'))
 })
 
-
-
-
 app.use('*', (req, res) => {
-    console.log('error in the *')
     res.status(404).send('File Not Found');
   });
 
