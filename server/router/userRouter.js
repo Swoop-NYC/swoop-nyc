@@ -12,5 +12,5 @@ router.post('/', userController.createUser, (req, res)=>{
     res.status(200).redirect('/') //if success, redirect user to home
 })
 
-
+module.exports = router;
 
