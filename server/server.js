@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const userRouter = require('./router/userRouter');
-const itemRouter = require('./router/itemRouter');
+// const userRouter = require('./router/userRouter');
+const itemRouter = require('./router/itemRouter.js');
 const path = require('path')
 //install path
 
@@ -17,21 +17,28 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
   });
 
+app.use('/create-item', itemRouter)
+
 //endpoints for handling user login or user signup
 app.use('/', (req, res)=> {
-    res.status(200).sendFile(path.join(__dirname, '../index.html'))
+    console.log('error in the /')
+    res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
 })
-app.use('/login', userRouter);
+// app.use('/login', userRouter);
 // app.use('/signup', userRouter);
 
-app.use('/create-listing', itemRouter)
 
 
-app.use('*', (err, req, res, next) => {
+app.use('*', (req, res) => {
+    console.log('error in the *')
+    res.status(404).send('File Not Found');
+  });
+
+app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Express error handler caught unknown middleware error',
         status: 500,
-        message: { err: 'there is an error and its our fualt' }
+        message: { err: 'there is an error and its your fault' }
     }
     const errorObj = Object.assign(defaultErr, err);
     res.status(errorObj.status).json(errorObj.message);
