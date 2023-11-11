@@ -6,11 +6,10 @@ const SideNav = () => {
     <div id='sideNav'>
       {/* These are all the links for the side nav to names might have to be changed*/}
 
-      <Link to='/createpost'></Link>
-      <Link to='/listings'></Link>
-      <Link to='/signup'></Link>
-      <Link to='/login'></Link>
-      <Link></Link>
+      <Link to='/createpost'> createPost</Link>
+      <Link to='/listings'>Listings</Link>
+      <Link to='/signup'>Signup</Link>
+      <Link to='/login'>Login</Link>
 
       <Routes>
         {/* These are the routes for the sidenav all of the names are subject to chage as well as the names for the elements that they refer to */}
