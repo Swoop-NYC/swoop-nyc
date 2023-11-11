@@ -4,10 +4,10 @@ const Schema = mongoose.Schema
 
 const itemSchema = new Schema({
     title: {type: String, required: true},
-    image: {type: Image, required: true},
+    image: {type: String, required: true},
     description: {type: String, required: true},
-    locations: {type: String, required: true},
-    dropTime: {type: Date, required: true}
+    location: {type: String, required: true},
+    dropTime: {type: Date, default: Date.now}
 })
 
 module.exports = mongoose.model('Item', itemSchema)
