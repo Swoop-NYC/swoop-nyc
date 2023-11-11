@@ -18,14 +18,15 @@ mongoose.connection.once('open', () => {
   });
 
 app.use('/create-item', itemRouter)
+app.use('/login', userRouter);
+app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
 app.use('/', (req, res)=> {
     console.log('error in the /')
     res.status(200).sendFile(path.resolve(__dirname, '../index.html'))
 })
-// app.use('/login', userRouter);
-// app.use('/signup', userRouter);
+
 
 
 
