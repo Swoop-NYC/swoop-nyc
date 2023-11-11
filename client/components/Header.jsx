@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Router>
 
-    <div>
+    <div id='header'>
       {/* will hold our hamburger menu icon, when clicked it will show the component for the side nav */}
       <Link to='/login'>LOGIN</Link>
       <Link to='/userProfile'><img>{/* This will hold our logo on the left side of the header */}</img></Link>
