@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express();
 const PORT = 3000;
+const userRouter = require('./router/userRouter');
+
+
 const mongoose = require('mongoose')
 require('dotenv').config()
 
@@ -11,6 +14,9 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
   });
 
+//endpoints for handling user login or user signup
+app.use('/login', userRouter);
+// app.use('/signup', userRouter);
 
 app.use('*', (err, req, res, next) => {
     const defaultErr = {
