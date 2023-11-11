@@ -6,7 +6,7 @@ require('dotenv').config()
 
 app.use(express.json());
 
-require('dotenv').config()
+// require('dotenv').config()
 
 mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
 mongoose.connection.once('open', () => {
