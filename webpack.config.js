@@ -40,7 +40,7 @@ module.exports = {
         }
       },
       {
-        test: /\.s[ac]ss$/i, ///\.s?ss$/
+        test: /\.(css|scss)$/, ///\.s?ss$/
         exclude: /node_modules/,
         use: [ //order is RIGHT TO LEFT
           // Creates `style` nodes from JS strings
@@ -58,7 +58,7 @@ module.exports = {
       {
         title: 'Development',
         //specify template to build new index html file off of
-        template: './client/index.html'
+        template: './index.html'
       }
     )
   ],
@@ -66,7 +66,7 @@ module.exports = {
     // hot: true, //hot module reload
     static: {
         // directory: path.resolve(__dirname),
-        // publicPath: '/build/',
+        publicPath: '/build/',
 //can also set this up in entry, many more config options
       },
     //specify port for dev server launch, default is 8080
@@ -78,7 +78,56 @@ module.exports = {
       '/project': 'http://localhost:3000',
       '/build': 'http://localhost:3000',
       '/css': 'http://localhost:3000',
-      '/signup': 'http://localhost:3000'
+      '/signup': 'http://localhost:3000',
+      '/create-item': 'http://localhost:3000'
     }
   },
 }
+
+// const path = require('path');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// module.exports = {
+//   entry: path.join(__dirname, './client/index.js'),
+//   output: {
+//     filename: 'bundle.js',
+//     path: path.resolve(__dirname, 'dist'),
+//   },
+//   mode: 'development',
+//   devServer: {
+//     static: {
+//       publicPath: '/',
+//       directory: path.resolve(__dirname, 'dist'),
+//     },
+//     port: 8080,
+//     proxy: {
+//       '/assets': 'http://localhost:3000/',
+//       // pathRewrite: { '^/assets': ''}, //Brooke's req
+//       secure: false
+//     }
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.jsx?/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader:'babel-loader',
+//           options: {
+//             presets: ['@babel/env', '@babel/react']
+//           }
+//         },
+//       },
+//       {
+//         test: /\.s?css/,
+//         exclude: '/node_modules/',
+//         use: ['style-loader', 'css-loader']
+//       },
+//       {
+//         test: /\.(png|svg|jpg|jpeg|gif)$/i,
+//         type: 'asset',
+//         use: ['url-loader'],
+//       },
+//     ]
+//   },
+//   plugins: [new HtmlWebpackPlugin({title: 'Development', template: './index.html'})],
+// };

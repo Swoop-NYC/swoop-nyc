@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const userController = require('../controller/userController');
+// const express = require('express');
+// const router = express.Router();
+// const userController = require('../controller/userController');
 
 //GET user info
 router.post('/login', userController.verifyUser, (req, res)=>{
@@ -12,5 +12,5 @@ router.post('/', userController.createUser, (req, res)=>{
     res.status(200).send('sign up success'); //if success, redirect user to home
 })
 
-module.exports = router;
+// module.exports = router;
 

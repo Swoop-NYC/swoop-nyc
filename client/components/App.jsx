@@ -1,16 +1,22 @@
 import React from 'react';
-import Header from './components/Header.jsx';
+import Header from './Header.jsx';
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import SideNav from './components/SideNav.jsx';
-import './styles.css'
+import SideNav from './SideNav.jsx';
+import '../../build/calendar.css'
 
 
 const App = () => {
   return (
+    <Router>
     <div>
-      <Header/> 
-      <SideNav/>
+    <Header></Header>
+    <SideNav></SideNav>
+{  /*    <Header/> 
+  <SideNav/> */}
+  <p>Hi</p>
     </div>
+    </Router>
+
   )
 }
 
