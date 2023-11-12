@@ -2,10 +2,17 @@ const express = require('express')
 const app = express();
 const PORT = 3000;
 // const userRouter = require('./router/userRouter');
+const cors = require("cors");
+const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
 const path = require('path')
 //install path
 
+//set up cors policy 
+var corsOptions = {
+  origin: "http://localhost:8080"
+};
+app.use(cors(corsOptions));
 
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -18,8 +25,9 @@ mongoose.connection.once('open', () => {
   });
 
 app.use('/create-item', itemRouter)
-// app.use('/login', userRouter);
-// app.use('/signup', userRouter);
+app.use('/login', userRouter);
+
+app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
 // app.use('/', (req, res)=> {
