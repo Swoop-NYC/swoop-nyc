@@ -1,28 +1,48 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
+import SideNav from './SideNav.jsx';
+import { useState } from 'react';
+
 
 const Header = () => {
-  return (
+  //local component state variable to hold the menu
+  const [menu, setMenu] = useState([]);
+  //function to delete the menu div
+  const removeMenu = () => {
+    setMenu([]);
+  }
+  //function to create the side menu onClick of the Menu button
+  const showMenu = () => {
+    setMenu([
+    <div id='sideNav'>
+      <Link to='/createpost' onClick={removeMenu}>CreatePost</Link>
+      <Link to='/listings' onClick={removeMenu}>Listings</Link>
+      <Link to='/signup' onClick={removeMenu}>Signup</Link>
+      <Link to='/login' onClick={removeMenu}>Login</Link>
+      </div>
+      ])
+  }
 
+  return (
     <div id='header'>
       {/* will hold our hamburger menu icon, when clicked it will show the component for the side nav 
           As well as an image tag that has our site logo*/}
-      <img></img>
-      <Link to='/login'>LOGIN</Link>
-      <Link to='/user-profile'>USER<img>{/* This will hold our logo on the left side of the header */}</img></Link>
-      <Link to='/dropdown'>DROPDOWN<img>{/*This will hold the hamburger dropdown menu*/}</img></Link>
+      <div id='header-left'>
+        <img id='header-logo' src='https://media.istockphoto.com/id/1146670231/vector/rubber-duck-vector-illustration.jpg?s=612x612&w=0&k=20&c=75fuQJhx-j5Q9O1ndmeunLPBKbrQxsTcZ1I6DYbVsnY='></img>
+      </div>
+      <div id='header-right'>
+        <Link to='/user-profile'>USER<img>{/* This will hold our logo on the left side of the header */}</img></Link>
+        <button onClick={showMenu}>Menu</button>
+      </div>
       <Routes>
         {/* Takes you to the login page */}
-        <Route path='login' element></Route>
         {/* Takes you to the users profile */}
-        <Route path='user-profile' element></Route>
+        <Route path='/user-profile/*' element></Route>
         {/* Renders the dropdown menu on the page */}
-        <Route path='/dropdown' element></Route>
+        {/* <Route path='/dropdown/*' element={<SideNav/>}></Route> */}
       </Routes>
+        {menu}
     </div>
-
-
-
   )
 }
 

@@ -45,12 +45,13 @@ const CreatePost = () => {
     const options = {
       method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({item: item}),
+        body: JSON.stringify(item),
     }
     try {
 
       const serverResponse = await fetch('/create-item', options);
       const response = await serverResponse.json();
+      console.log('we are in the frontend after button click', response)
       setPostOutcome([<p>Post sucessfully created.</p>]) //update the message the user sees to 
     }
     catch (err) {
@@ -70,8 +71,8 @@ const CreatePost = () => {
     //build an item object with the form values 
     const item = {}; 
     item.title = formTitle.value;
-    item.location = {borough: formBorough.value, neighboorhood: formNeighboorhood.value};
-    item.decription = formDesc.value;
+    item.location = [ formBorough.value, formNeighboorhood.value];
+    item.description = formDesc.value;
     item.dropDate = dropDate;
     item.image = formImg.files[0];
     //consolelog the values

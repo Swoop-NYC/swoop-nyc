@@ -5,6 +5,7 @@ const PORT = 3000;
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
+const itemController = require('./controller/itemController.js')
 const path = require('path')
 //install path
 
@@ -19,20 +20,24 @@ require('dotenv').config()
 
 app.use(express.json());
 
-// mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
-// mongoose.connection.once('open', () => {
-//     console.log('Connected to Database');
-//   });
+mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
+mongoose.connection.once('open', () => {
+    console.log('Connected to Database');
+  });
 
 app.use('/create-item', itemRouter)
+app.use('/all-listings', itemController.getAllItems, (req, res) => {
+    res.status(200).json(res.locals.allListings)
+})
+
 // app.use('/login', userRouter);
 
 // app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
-// app.use('/', (req, res)=> {
-//     res.status(200).sendFile(path.join(__dirname, '../index.html'))
-// })
+app.use('/', (req, res)=> {
+    res.status(200).sendFile(path.join(__dirname, '../index.html'))
+})
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 app.use('*', (req, res) => {

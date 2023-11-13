@@ -79,12 +79,12 @@ module.exports = {
       //allows us to fetch to from localhost 3000 when we're on 8080
     proxy: {
       //endpoint cannot be route, context required
-      '/material': 'http://localhost:3000',
-      '/project': 'http://localhost:3000',
-      '/build': 'http://localhost:3000',
+      
       '/css': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
-      '/create-item': 'http://localhost:3000'
+      '/create-item': 'http://localhost:3000',
+      '/all-listings': 'http://localhost:3000',
+      '/login': 'http://localhost:3000',
     }
   },
 }

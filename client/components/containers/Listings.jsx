@@ -14,7 +14,7 @@ const Listings = () => {
   //function to be used inside of the useEffect hook - it will grab data from the DB and then update the state
   const grabItems = async () => {
     try {
-      const getData = await fetch('http://localhost:3000/all-listings');
+      const getData = await fetch('/all-listings');
       if (!getData.ok) {
         setFetchMessage([<p id='error'>An error occured, could not load listings.</p>])
       }
