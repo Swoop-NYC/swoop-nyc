@@ -5,6 +5,7 @@ const PORT = 3000;
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
+const itemController = require('./controller/itemController.js')
 const path = require('path')
 //install path
 
@@ -25,6 +26,10 @@ mongoose.connection.once('open', () => {
   });
 
 app.use('/create-item', itemRouter)
+app.use('/all-listings', itemController.getAllItems, (req, res) => {
+    res.status(200).json(res.locals.allListings)
+})
+
 // app.use('/login', userRouter);
 
 // app.use('/signup', userRouter);
