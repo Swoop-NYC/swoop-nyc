@@ -18,6 +18,7 @@ const Item = () => {
         itemDiv.push(
           <div id={items[i].title} className='items-post'>
             <h4>{items[i].title}</h4>
+            <img src={items[i].image} style={{height: '300px', width: '300px'}}/>
             <p>{items[i].location[0]},{items[i].location[1]} </p>
             <p>{items[i].description}</p>
             <p>Drop Date: {items[i].dropDate}</p>
@@ -70,6 +71,7 @@ const Item = () => {
           filter.push(
             <div id={items[i].title} className='items-post'>
               <h4>{items[i].title}</h4>
+              <img src={items[i].image} style={{height: '300px', width: '300px'}}/>
               <p>{items[i].location[0]},{items[i].location[1]} </p>
               <p>{items[i].description}</p>
               <p>Drop Date: {items[i].dropDate}</p>
