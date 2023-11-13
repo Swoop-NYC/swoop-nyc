@@ -48,6 +48,7 @@ body {
     justify-content: space-around;
     background-color: #FFF9F0;
     width: 40vw;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.503);
 }
 
 #post-form {
@@ -60,7 +61,7 @@ body {
     margin-top: 100px;
     flex-direction: column;
     border-radius: 5px;
-    box-shadow: 0px 0px 50px black;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.505);
 
 }
 
@@ -123,7 +124,7 @@ button {
     background-color: #FFF9F0;
     height: 40vh;
     border-radius: 10px;
-    box-shadow: 0px 0px 50px black;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.501);
     flex-direction: column;
     width: 60vw;
     justify-content: center;
@@ -136,3 +137,13 @@ button {
     margin-left: 10px;
 }
 
+span {
+    height: 50px;
+    width: 50px;
+}
+
+#user-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
