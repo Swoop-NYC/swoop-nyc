@@ -39,10 +39,14 @@ const Signup = () => {
 
 return (
   <div id='login'>
-    <label>User Name:</label>
-    <input type='text' id='username'></input>
-    <label>Password:</label>
-    <input type='password' id='passwordww'></input>
+    <div id="username">
+      <label>User Name:</label>
+      <input type='text' id='username'></input>
+    </div>
+    <div id="password">
+      <label>Password:</label>
+      <input type='password' id='passwordww'></input>
+    </div>
     <button onClick={createUser}>Login</button>
     {signinMessage}
   </div>
