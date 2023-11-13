@@ -85,18 +85,35 @@ const CreatePost = () => {
   
   //returns a form
   return (
-    <div>
-      <label>Title</label>
-      <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
-        <select id='form-borough' onChange={neighboorhoodPicker}>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Manhattan">Manhattan</option>
-        </select>
-        {neighboorhoodValues}
-        <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
-        <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
-        <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
-        <button onClick={createItem}>Post Your Item</button>
+    <div id="post-form">
+      <div className="form-field">
+        <label>Title</label>
+        <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
+      </div>
+      <div className="form-field">
+        <label>Location</label>
+          <select id='form-borough' onChange={neighboorhoodPicker}>
+          <option value="Choose a Bourough">Bourough</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Manhattan">Manhattan</option>
+          </select>
+          {neighboorhoodValues}
+        </div>
+        <div className="form-field">
+          <label>Drop Date</label>
+          <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
+        </div>
+        <div className="form-field">
+          <label>Item Description</label>
+          <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
+        </div>
+        <div className="form-field">
+          <label>Image Upload</label>
+          <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
+        </div>
+          <div className="form-field">
+            <button onClick={createItem}>Post Your Item</button>
+          </div>
         {postOutcome}
     </div>
    

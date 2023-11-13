@@ -1,8 +1,15 @@
+* {
+    margin: 1vw;
+  }
+
 body {
     display: flex;
 }
 
 #header {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: space-around;
     width: 100vw;
@@ -38,4 +45,35 @@ body {
     justify-content: space-around;
     border: 2px solid blue ;
     width: 40vw;
+}
+
+#post-form {
+    display: flex;
+    border: 2px green solid;
+    height: 80vh;
+    width: 50vw;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+}
+
+.form-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+label {
+    font-size: 20px;
 }
