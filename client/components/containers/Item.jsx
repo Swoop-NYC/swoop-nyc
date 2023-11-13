@@ -1,10 +1,30 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 
 const Item = () => {
+
+  //using this to try and get the listings page to pull info from the DB when you go directly to this page instead of navigating from the home page
+  // const dispatch = useDispatch();
+  // const grabItems = async () => {
+  //   try {
+  //     const getData = await fetch('/all-listings');
+  //     if (!getData.ok) {
+  //       // setFetchMessage([<p id='error'>An error occured, could not load listings.</p>])
+  //     }
+  //     const response = await getData.json();
+  //     //dispatch this information to the global state
+  //     dispatch(updateItems({response: response}));
+  //   }
+  //   catch (err) {
+  //     // setFetchMessage([<p id='error'>An error occured, could not load listings. Error: {err.message}</p>])
+  //     return;
+  //   }
+  // };
+  // grabItems();
 
   //useselector to subscribe to the items piece of state to populate 
   const items = useSelector((state) => {return state.swoop.items})
@@ -12,6 +32,7 @@ const Item = () => {
 
   //loop through the list from back to front & push all of the 
   const render = () => {
+    // grabItems();
     if (items !== undefined) {
       for (let i = items.length -1; i >= 0; i--) {
         console.log('inside of the loop')

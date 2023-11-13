@@ -37,7 +37,12 @@ console.log('build html ',staticPath);
 app.use('/createpost', (req, res)=>{
     res.status(200).sendFile(staticPath)
 });
-
+app.use('/listings', (req, res)=>{
+    res.status(200).sendFile(staticPath)
+});
+app.use('/signup', (req, res)=>{
+    res.status(200).sendFile(staticPath)
+});
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 // app.use('/login', userRouter);
