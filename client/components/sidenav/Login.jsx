@@ -17,7 +17,7 @@ const Login = () => {
       body: JSON.stringify({user: user}),
       };
     try {
-      const serverReponse = await fetch('http://localhost:3000/login/', options);
+      const serverReponse = await fetch('/login/', options);
     }
     catch (err) {
       //if the login fails, throw this error below the login button
