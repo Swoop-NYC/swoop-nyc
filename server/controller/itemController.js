@@ -1,9 +1,9 @@
 const Item = require('../models/itemModel.js');
 
-const itemController = {}
+const itemController = {} 
 
 itemController.createItem = (req, res, next) => {
-    console.log('here')
+    console.log('in the itemController, and here are the contents of the request body: ', req.body)
         // const { title, image, description, location, dropTime } = req.body;
 
         // const array = ['title', 'image', 'description', 'location', 'dropTime'];
@@ -17,13 +17,14 @@ itemController.createItem = (req, res, next) => {
         //         res.locals.newItem[array[i]] = req.body[array[i]]
         //     }
         // }
+        
         Item.create(req.body)
         .then((data) => {
             res.locals.newItem = data;
-            next()
+            next();
         })
         .catch((err) => {
-            return next({log: 'there is an error it itemController createItem', status: 404, message: {err: 'you are missing information for your created item'}})
+            return next({log: 'there is an error it itemController createItem', status: 404, message: {err: err.message}})
         })
 
     };

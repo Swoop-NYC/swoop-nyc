@@ -25,9 +25,9 @@ mongoose.connection.once('open', () => {
   });
 
 app.use('/create-item', itemRouter)
-app.use('/login', userRouter);
+// app.use('/login', userRouter);
 
-app.use('/signup', userRouter);
+// app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
 app.use('/', (req, res)=> {
