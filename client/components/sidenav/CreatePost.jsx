@@ -27,7 +27,7 @@ const CreatePost = () => {
       setPostOutcome([<p>Post sucessfully created.</p>]) //update the message the user sees to 
     }
     catch (err) {
-      setPostOutcome([<p id='posting-error'>An error occured. Failed to post your item.</p>])
+      setPostOutcome([<p id='error'>An error occured. Failed to post your item.</p>])
       console.log(err);
     }
   }
