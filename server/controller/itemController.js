@@ -3,6 +3,7 @@ const Item = require('../models/itemModel.js');
 const itemController = {
 
 createItem(req, res, next) {
+    console.log('here')
         // const { title, image, description, location, dropTime } = req.body;
 
         // const array = ['title', 'image', 'description', 'location', 'dropTime'];
