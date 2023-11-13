@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect} from "react";
 import { useDispatch } from "react-redux";
 import Item from "./Item.jsx";
+import updateItems from '../reducers/swoopSlice.js'
 
 
 const Listings = () => {
