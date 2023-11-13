@@ -14,6 +14,9 @@ const App = () => {
     <Router>
     <div>
     <Header></Header>
+    <h1>STOOPING</h1>
+    <h2>(Stuh-oop-ing)</h2>
+    <h1>The Proccess of Recycling goods for eachtohers benefits</h1>
     </div>
       <Routes>
         <Route path='/createpost' element={<CreatePost/>}></Route>

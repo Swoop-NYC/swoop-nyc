@@ -86,18 +86,55 @@ const CreatePost = () => {
   
   //returns a form
   return (
-    <div>
-      <label>Title</label>
-      <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
-        <select id='form-borough' onChange={neighboorhoodPicker}>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Manhattan">Manhattan</option>
-        </select>
-        {neighboorhoodValues}
-        <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
-        <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
-        <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
-        <button onClick={createItem}>Post Your Item</button>
+    <div id="post-form">
+      <div className="form-field">
+        <div className="form-field-left">
+          <label>Title</label>
+        </div>
+        <div className="form-field-right">
+          <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
+        </div>
+      </div>
+      <div className="form-field">
+        <div className="form-field-left">
+          <label>Location</label>
+        </div>
+        <div className="form-field-right">
+          <select id='form-borough' onChange={neighboorhoodPicker}>
+          <option value="Choose a Bourough">Bourough</option>
+            <option value="Brooklyn">Brooklyn</option>
+            <option value="Manhattan">Manhattan</option>
+          </select>
+          {neighboorhoodValues}
+        </div>
+        </div>
+        <div className="form-field">
+          <div className="form-field-left">
+            <label>Drop Date</label>
+          </div>
+          <div className="form-field-right">
+            <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
+          </div>
+        </div>
+        <div className="form-field">
+          <div className="form-field-left">
+            <label>Item Description</label>
+          </div>
+          <div className="form-field-right">
+            <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
+          </div>
+        </div>
+        <div className="form-field">
+          <div className="form-field-left">
+            <label>Image Upload</label>
+          </div>
+          <div className="form-field-right">
+            <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
+          </div>
+        </div>
+          <div className="button-form-field">
+            <button onClick={createItem}>Post Your Item</button>
+          </div>
         {postOutcome}
     </div>
    
