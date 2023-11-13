@@ -31,7 +31,7 @@ const Header = () => {
         <Link to='/'><img id='header-logo' src='https://media.istockphoto.com/id/1146670231/vector/rubber-duck-vector-illustration.jpg?s=612x612&w=0&k=20&c=75fuQJhx-j5Q9O1ndmeunLPBKbrQxsTcZ1I6DYbVsnY='></img></Link>
       </div>
       <div id='header-right'>
-        <Link to='/user-profile'>USER<img>{/* This will hold our logo on the left side of the header */}</img></Link>
+        <Link to='/user-profile'><img id='user-img' src='https://m.media-amazon.com/images/I/51KdEaTeLEL.__AC_SX300_SY300_QL70_FMwebp_.jpg'></img></Link>
         <button onclick onClick={showMenu}><span class="material-symbols-outlined">menu</span></button>
       </div>
       <Routes>
