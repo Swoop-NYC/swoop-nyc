@@ -1,3 +1,41 @@
 body {
-    color: blue;
+    display: flex;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 75px;
+    border: 2px solid blue;
+}
+
+#header-logo {
+    height: 75px;
+    width: 75px;
+}
+
+#header-left {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#header-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    align-items: center;
+
+}
+
+#sideNav {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 2px solid blue ;
+    width: 40vw;
 }

@@ -46,7 +46,7 @@ const CreatePost = () => {
     item.location = {borough: formBorough.value, neighboorhood: formNeighboorhood.value};
     item.decription = formDesc.value;
     item.dropDate = dropDate;
-    item.image = formImg.value;
+    // item.image = formImg.value;
     //consolelog the values
     console.log('here are the contents of the item object: ', item);
     //invoke the async function that sends the constructed item to the DB
@@ -89,8 +89,8 @@ const CreatePost = () => {
       <label>Title</label>
       <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
         <select id='form-borough' onChange={neighboorhoodPicker}>
-          <option value="Brooklyn"></option>
-          <option value="Manhattan"></option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Manhattan">Manhattan</option>
         </select>
         {neighboorhoodValues}
         <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
