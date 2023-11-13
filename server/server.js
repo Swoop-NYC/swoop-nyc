@@ -19,7 +19,6 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 app.use(express.json());
-
 mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
 mongoose.connection.once('open', () => {
     console.log('Connected to Database');

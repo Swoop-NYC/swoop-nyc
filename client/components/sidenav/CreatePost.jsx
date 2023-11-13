@@ -38,17 +38,20 @@ const CreatePost = () => {
         .getPublicUrl(item.image.name)
       
         //update value of item.image to the string of the url
-        item.image = imageUrl;
+        item.image = imageUrl.data.publicUrl;
         console.log('data received from image upload', imageUrl.data.publicUrl);
     } catch (err) {console.log(err);}
 
-    const options = {
-      method: 'POST',
-        headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify(item),
-    }
     try {
+      item = JSON.stringify(item);
+      const options = {
+        method: 'POST',
+          headers: { 'Content-Type': 'application/json'},
+          body: item
+      }
 
+      console.log('JSON item', item);
+      
       const serverResponse = await fetch('/create-item', options);
       const response = await serverResponse.json();
       console.log('we are in the frontend after button click', response)
