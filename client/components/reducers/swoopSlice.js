@@ -19,10 +19,14 @@ export const swoopSlice = createSlice({
             state.isLoggedIn = true
             state.currentUser = User
         },
+        updateItems: (state, action) => {
+            state.items = action.response
+            console.log('this is the current state: ', current(state));
+        },
     }
 });
 
-export const {addItem, userLogIn} = swoopSlice.actions
+export const {addItem, userLogIn, updateItems} = swoopSlice.actions
 
 export default swoopSlice.reducer
 
