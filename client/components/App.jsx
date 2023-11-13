@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import SideNav from './SideNav.jsx';
 import '../styles.css'
 import '../../build/calendar.css'
+import CreatePost from './sidenav/CreatePost.jsx';
 
 
 const App = () => {
@@ -11,11 +12,12 @@ const App = () => {
     <Router>
     <div>
     <Header></Header>
-    <SideNav></SideNav>
 {  /*    <Header/> 
   <SideNav/> */}
-  <p>Hi</p>
     </div>
+      <Routes>
+        <Route path='/createpost' element={<CreatePost/>}></Route>
+      </Routes>
     </Router>
 
   )
