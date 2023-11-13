@@ -6,7 +6,8 @@ const itemController = require('../controller/itemController.js');
 //     res.send(200).sendFile('../index.html');
 // });
 router.post('/', itemController.createItem, (req, res, next) => {
-    res.send(200).json(res.locals.newItem);
+    console.log('in the router')
+    res.status(200).json(res.locals.newItem);
 });
 
 module.exports = router;
