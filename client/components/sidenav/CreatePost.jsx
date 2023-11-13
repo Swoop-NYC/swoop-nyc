@@ -46,7 +46,7 @@ const CreatePost = () => {
     item.location = {borough: formBorough.value, neighboorhood: formNeighboorhood.value};
     item.decription = formDesc.value;
     item.dropDate = dropDate;
-    item.image = formImg.value;
+    // item.image = formImg.value;
     //consolelog the values
     console.log('here are the contents of the item object: ', item);
     //invoke the async function that sends the constructed item to the DB
