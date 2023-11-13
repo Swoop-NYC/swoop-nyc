@@ -28,11 +28,11 @@ const Header = () => {
       {/* will hold our hamburger menu icon, when clicked it will show the component for the side nav 
           As well as an image tag that has our site logo*/}
       <div id='header-left'>
-        <img id='header-logo' src='https://media.istockphoto.com/id/1146670231/vector/rubber-duck-vector-illustration.jpg?s=612x612&w=0&k=20&c=75fuQJhx-j5Q9O1ndmeunLPBKbrQxsTcZ1I6DYbVsnY='></img>
+        <Link to='/'><img id='header-logo' src='https://media.istockphoto.com/id/1146670231/vector/rubber-duck-vector-illustration.jpg?s=612x612&w=0&k=20&c=75fuQJhx-j5Q9O1ndmeunLPBKbrQxsTcZ1I6DYbVsnY='></img></Link>
       </div>
       <div id='header-right'>
         <Link to='/user-profile'>USER<img>{/* This will hold our logo on the left side of the header */}</img></Link>
-        <button onClick={showMenu}>Menu</button>
+        <button onclick onClick={showMenu}><span class="material-symbols-outlined">menu</span></button>
       </div>
       <Routes>
         {/* Takes you to the login page */}

@@ -1,33 +1,29 @@
 const Item = require('../models/itemModel.js');
 
-const itemController = {
+const itemController = {} 
 
-createItem(req, res, next) {
-    console.log('here')
-        // const { title, image, description, location, dropTime } = req.body;
-
-        // const array = ['title', 'image', 'description', 'location', 'dropTime'];
-
-        // res.locals.newItem = {};
-
-        // for(let i = 0; i < array.length; i++) {
-        //     if(!req.body[array[i]]) {
-        //         return next({log: 'there is an error it itemController createItem', status: 404, message: {err: 'you are missing information for your created item'}})
-        //     } else {
-        //         res.locals.newItem[array[i]] = req.body[array[i]]
-        //     }
-        // }
+itemController.createItem = (req, res, next) => {
+    console.log('in the itemController, and here are the contents of the request body: ', req.body)
         Item.create(req.body)
         .then((data) => {
             res.locals.newItem = data;
-            next()
+            next();
         })
         .catch((err) => {
-            return next({log: 'there is an error it itemController createItem', status: 404, message: {err: 'you are missing information for your created item'}})
+            return next({log: 'there is an error it itemController createItem', status: 404, message: {err: err.message}})
         })
 
-    }
-    
     };
+
+    itemController.getAllItems = async (req, res, next) => {
+        try{
+            let allListings = await Item.find({})
+            res.locals.allListings = allListings
+            next()
+        }
+        catch(e) {
+            return next({erro: e})
+        }
+    }
 
 module.exports = itemController;

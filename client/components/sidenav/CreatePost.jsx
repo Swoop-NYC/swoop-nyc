@@ -19,11 +19,12 @@ const CreatePost = () => {
     const options = {
       method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({item: item}),
+        body: JSON.stringify(item),
     }
     try {
       const serverResponse = await fetch('/create-item', options);
       const response = await serverResponse.json();
+      console.log('we are in the frontend after button click', response)
       setPostOutcome([<p>Post sucessfully created.</p>]) //update the message the user sees to 
     }
     catch (err) {
@@ -43,10 +44,10 @@ const CreatePost = () => {
     //build an item object with the form values 
     const item = {}; 
     item.title = formTitle.value;
-    item.location = {borough: formBorough.value, neighboorhood: formNeighboorhood.value};
-    item.decription = formDesc.value;
+    item.location = [ formBorough.value, formNeighboorhood.value];
+    item.description = formDesc.value;
     item.dropDate = dropDate;
-    // item.image = formImg.value;
+    item.image = formImg.value;
     //consolelog the values
     console.log('here are the contents of the item object: ', item);
     //invoke the async function that sends the constructed item to the DB
@@ -87,11 +88,18 @@ const CreatePost = () => {
   return (
     <div id="post-form">
       <div className="form-field">
-        <label>Title</label>
-        <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
+        <div className="form-field-left">
+          <label>Title</label>
+        </div>
+        <div className="form-field-right">
+          <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
+        </div>
       </div>
       <div className="form-field">
-        <label>Location</label>
+        <div className="form-field-left">
+          <label>Location</label>
+        </div>
+        <div className="form-field-right">
           <select id='form-borough' onChange={neighboorhoodPicker}>
           <option value="Choose a Bourough">Bourough</option>
             <option value="Brooklyn">Brooklyn</option>
@@ -99,19 +107,32 @@ const CreatePost = () => {
           </select>
           {neighboorhoodValues}
         </div>
-        <div className="form-field">
-          <label>Drop Date</label>
-          <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
         </div>
         <div className="form-field">
-          <label>Item Description</label>
-          <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
+          <div className="form-field-left">
+            <label>Drop Date</label>
+          </div>
+          <div className="form-field-right">
+            <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
+          </div>
         </div>
         <div className="form-field">
-          <label>Image Upload</label>
-          <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
+          <div className="form-field-left">
+            <label>Item Description</label>
+          </div>
+          <div className="form-field-right">
+            <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
+          </div>
         </div>
-          <div className="form-field">
+        <div className="form-field">
+          <div className="form-field-left">
+            <label>Image Upload</label>
+          </div>
+          <div className="form-field-right">
+            <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
+          </div>
+        </div>
+          <div className="button-form-field">
             <button onClick={createItem}>Post Your Item</button>
           </div>
         {postOutcome}
