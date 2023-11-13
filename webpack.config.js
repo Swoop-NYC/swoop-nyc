@@ -78,6 +78,7 @@ module.exports = {
       '/css': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
       '/create-item': 'http://localhost:3000',
+      '/all-listings': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
     }
   },
