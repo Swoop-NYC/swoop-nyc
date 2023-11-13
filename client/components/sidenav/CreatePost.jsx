@@ -89,8 +89,8 @@ const CreatePost = () => {
       <label>Title</label>
       <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
         <select id='form-borough' onChange={neighboorhoodPicker}>
-          <option value="Brooklyn"></option>
-          <option value="Manhattan"></option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Manhattan">Manhattan</option>
         </select>
         {neighboorhoodValues}
         <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />

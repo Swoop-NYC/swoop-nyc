@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, Outlet } from 'react-router-dom';
 import CreatePost from './sidenav/CreatePost.jsx';
 import Listings from './containers/Listings.jsx';
 
