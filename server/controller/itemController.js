@@ -16,8 +16,10 @@ itemController.createItem = (req, res, next) => {
     };
 
     itemController.getAllItems = async (req, res, next) => {
+
         try{
             let allListings = await Item.find({})
+            console.log('here are all of the listings: ', allListings)
             res.locals.allListings = allListings
             next()
         }
