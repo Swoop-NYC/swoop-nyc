@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const PORT = 3000;
-// const userRouter = require('./router/userRouter');
+const userRouter = require('./router/userRouter');
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
@@ -19,17 +19,18 @@ require('dotenv').config()
 
 app.use(express.json());
 
-// mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
-// mongoose.connection.once('open', () => {
-//     console.log('Connected to Database');
-//   });
+mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
+mongoose.connection.once('open', () => {
+    console.log('Connected to Database');
+  });
 
 app.use('/create-item', itemRouter)
+
+//TODO login function
 // app.use('/login', userRouter);
 
-// app.use('/signup', userRouter);
+app.use('/signup', userRouter);
 
-//endpoints for handling user login or user signup
 // app.use('/', (req, res)=> {
 //     res.status(200).sendFile(path.join(__dirname, '../index.html'))
 // })
