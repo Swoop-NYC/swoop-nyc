@@ -25,14 +25,14 @@ mongoose.connection.once('open', () => {
   });
 
 app.use('/create-item', itemRouter)
-// app.use('/login', userRouter);
+app.use('/login', userRouter);
 
-// app.use('/signup', userRouter);
+app.use('/signup', userRouter);
 
 //endpoints for handling user login or user signup
-// app.use('/', (req, res)=> {
-//     res.status(200).sendFile(path.join(__dirname, '../index.html'))
-// })
+app.use('/', (req, res)=> {
+    res.status(200).sendFile(path.join(__dirname, '../index.html'))
+})
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 app.use('*', (req, res) => {
