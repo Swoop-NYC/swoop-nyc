@@ -20,8 +20,9 @@ export const swoopSlice = createSlice({
             state.currentUser = User
         },
         updateItems: (state, action) => {
-            state.items = action.response
-            console.log('this is the current state: ', current(state));
+            const items = action.payload.response;
+            state.items = items
+            
         },
     }
 });
