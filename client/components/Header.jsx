@@ -1,13 +1,34 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Link, Route } from 'react-router-dom';
 import SideNav from './SideNav.jsx';
+import { useState } from 'react';
 
-function correctDropbox() {
-  let dropdown = document.querySelector('#dropdown')
-  dropdown.innerText
-}
 
 const Header = () => {
+
+
+  const [status,setstatus] = useState([])
+  let open = false
+  function sideNavStatus(){
+    console.log('the menu is open', open)
+    //if the menu is not open populate the status state with the links
+    if(!open){setstatus([<div id='sideNav'><Link to='/createpost'> createPost</Link><Link to='/listings'>Listings</Link><Link to='/signup'>Signup</Link><Link to='/login'>Login</Link></div>])
+    //set the open var to true
+    open = true
+    //console.log the menu is open
+    console.log('menu is open',open)
+  }
+  //if the menu is open 
+  if(open){
+    //console.log menu is closed
+    console.log('menu is closed',open)
+  }
+    console.log(status)
+  }
+
+
+
+
   return (
 
     <div id='header'>
@@ -18,8 +39,9 @@ const Header = () => {
       </div>
       <div id='header-right'>
         <Link to='/user-profile'>USER<img>{/* This will hold our logo on the left side of the header */}</img></Link>
-        <Link onClick={() => correctDropbox} id='dropdown'  to='/dropdown'>DROPDOWN<img>{/*This will hold the hamburger dropdown menu*/}</img></Link>
-      </div>
+        <button onClick={sideNavStatus}>DropDown</button>
+        {status}
+=      </div>
       <Routes>
         {/* Takes you to the login page */}
         {/* Takes you to the users profile */}
