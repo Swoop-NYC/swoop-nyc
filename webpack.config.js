@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const Dotenv = require('dotenv-webpack');
 
 //cross-env plugin will need to be used for cross-platform compatibility
 // console.log('NODE ENV', process.env.NODE_ENV);
@@ -60,7 +61,11 @@ module.exports = {
         //specify template to build new index html file off of
         template: './index.html'
       }
-    )
+    ),
+    // new Dotenv({
+    //   path: './.env',
+    //   safe: true
+    // })
   ],
   devServer: {
     // hot: true, //hot module reload

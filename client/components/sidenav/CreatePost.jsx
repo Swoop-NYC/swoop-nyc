@@ -1,7 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
+
 // import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
+//import supabase API and set up connection to supabase storage of images
+  //we've implemented row-level security to the database so the API key can be on the client side
+import { createClient } from '@supabase/supabase-js'
+const supabaseUrl = 'https://pvjgsahtonujtyehjsqv.supabase.co'
+const supabaseKey = process.env.REACT_APP_SUPABASE
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 //TODO: Add CSS for error message <p> tag 
 //onClickOutside={(date) => setDropDate(date)}
@@ -16,12 +23,32 @@ const CreatePost = () => {
 
   //this function makes a post reques to DB. Called within createItem()
   const sendToDB = async (item) => {
+    //add image to supabase and get the URL back, add the URL to the request body
+    try{
+      //upload image
+      const {data, error} = await supabase
+        .storage
+        .from('item-image')
+        .upload(item.image.name, item.image)
+
+      //get the url from the uploaded image
+      const imageUrl = await supabase
+        .storage
+        .from('item-image')
+        .getPublicUrl(item.image.name)
+      
+        //update value of item.image to the string of the url
+        item.image = imageUrl;
+        console.log('data received from image upload', imageUrl.data.publicUrl);
+    } catch (err) {console.log(err);}
+
     const options = {
       method: 'POST',
         headers: { 'Content-Type': 'application/json'},
         body: JSON.stringify({item: item}),
     }
     try {
+
       const serverResponse = await fetch('/create-item', options);
       const response = await serverResponse.json();
       setPostOutcome([<p>Post sucessfully created.</p>]) //update the message the user sees to 
@@ -46,7 +73,7 @@ const CreatePost = () => {
     item.location = {borough: formBorough.value, neighboorhood: formNeighboorhood.value};
     item.decription = formDesc.value;
     item.dropDate = dropDate;
-    item.image = formImg.value;
+    item.image = formImg.files[0];
     //consolelog the values
     console.log('here are the contents of the item object: ', item);
     //invoke the async function that sends the constructed item to the DB
@@ -89,8 +116,8 @@ const CreatePost = () => {
       <label>Title</label>
       <input id='form-title' placeholder='Velvet Couch' type='text' name='item-title'></input>
         <select id='form-borough' onChange={neighboorhoodPicker}>
-          <option value="Brooklyn"></option>
-          <option value="Manhattan"></option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Manhattan">Manhattan</option>
         </select>
         {neighboorhoodValues}
         <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
