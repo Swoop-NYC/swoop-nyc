@@ -1,11 +1,18 @@
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const userRouter = require('./router/userRouter');
-const itemRouter = require('./router/itemRouter');
+// const userRouter = require('./router/userRouter');
+const cors = require("cors");
+const cookieSession = require("cookie-session");
+const itemRouter = require('./router/itemRouter.js');
 const path = require('path')
 //install path
 
+//set up cors policy 
+var corsOptions = {
+  origin: "http://localhost:8080"
+};
+app.use(cors(corsOptions));
 
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -17,22 +24,26 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
   });
 
-//endpoints for handling user login or user signup
-app.use('/', (req, res)=> {
-    //index.html
-    res.status(200).sendFile(path.join(__dirname, '../index.html'))
-})
+app.use('/create-item', itemRouter)
 app.use('/login', userRouter);
-// app.use('/signup', userRouter);
 
-app.use('/create-listing', itemRouter)
+app.use('/signup', userRouter);
 
+//endpoints for handling user login or user signup
+// app.use('/', (req, res)=> {
+//     res.status(200).sendFile(path.join(__dirname, '../index.html'))
+// })
 
-app.use('*', (err, req, res, next) => {
+app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use('*', (req, res) => {
+    res.status(404).send('File Not Found');
+  });
+
+app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Express error handler caught unknown middleware error',
         status: 500,
-        message: { err: 'there is an error and its our fualt' }
+        message: { err: 'there is an error and its your fault' }
     }
     const errorObj = Object.assign(defaultErr, err);
     res.status(errorObj.status).json(errorObj.message);

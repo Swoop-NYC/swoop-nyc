@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 
 //TODO: Add CSS for error message <p> tag 
-
+//onClickOutside={(date) => setDropDate(date)}
 
 const CreatePost = () => {
   //this piece of state will change based on the POST request
@@ -93,8 +93,8 @@ const CreatePost = () => {
           <option value="Manhattan"></option>
         </select>
         {neighboorhoodValues}
-        <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} onClickOutside={(date) => setDropDate(date)}/>
-        <textarea id='form-description' placeholder='Can be found at 59th Broadway...'></textarea>
+        <DatePicker selected={dropDate} onChange={(date) => setDropDate(date)} />
+        <textarea id='form-desc' placeholder='Can be found at 59th Broadway...'></textarea>
         <input type='file' id='form-img' accept="image/png, image/jpeg"></input>
         <button onClick={createItem}>Post Your Item</button>
         {postOutcome}

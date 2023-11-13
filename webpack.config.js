@@ -77,7 +77,9 @@ module.exports = {
       '/material': 'http://localhost:3000',
       '/project': 'http://localhost:3000',
       '/build': 'http://localhost:3000',
-      '/css': 'http://localhost:3000'
+      '/css': 'http://localhost:3000',
+      '/signup': 'http://localhost:3000',
+      '/create-item': 'http://localhost:3000'
     }
   },
 }
