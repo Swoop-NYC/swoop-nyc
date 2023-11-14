@@ -28,7 +28,7 @@ const Item = () => {
 
   //useselector to subscribe to the items piece of state to populate 
   const items = useSelector((state) => {return state.swoop.items})
-  const [itemDiv, setItemDiv] = useState([]);
+  const [itemDiv, setItemDiv] = useState([]);//can use redux state
 
   //loop through the list from back to front & push all of the 
   const render = () => {
@@ -48,7 +48,7 @@ const Item = () => {
       }
     }
   }
-
+//do this filtering on fetch request w specified params
   //for filter form
   const [neighboorhoodValues, setNeighboorhoodValues] = useState([]);
   const neighboorhoodPicker = () => {
@@ -80,6 +80,8 @@ const Item = () => {
     }
   };
   
+  //filtering listings by neighbored
+  //send another fetch request with params that specify the neighboorhood
   const renderWithFilter = () => {
     const filterChoice = document.querySelector('#filter-neighboorhood');
     
