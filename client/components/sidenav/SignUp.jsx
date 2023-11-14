@@ -39,6 +39,7 @@ const Signup = () => {
 
 return (
   <div id='login'>
+  <h1>SignUp</h1>
     <div id="username">
       <label>User Name:</label>
       <input type='text' id='username'></input>

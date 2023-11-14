@@ -26,10 +26,15 @@ const Login = () => {
   }
 return (
   <div id='login'>
+  <h1>Login</h1>
+    <div id="username">
     <label>User Name:</label>
     <input type='text' id='username'></input>
+    </div>
+    <div id="password">
     <label>Password:</label>
     <input type='password' id='passwordww'></input>
+    </div>
     <button onClick={checkUser}>Login</button>
     {loginMessage}
   </div>

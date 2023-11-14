@@ -84,14 +84,17 @@ const Item = () => {
     }
   render();
   return (
-    <div>
-      <select id='filter-borough' onChange={neighboorhoodPicker}>
-        <option value="default">Choose Your Borough</option>
-        <option value="Brooklyn">Brooklyn</option>
-        <option value="Manhattan">Manhattan</option>
-      </select>
-      {neighboorhoodValues}
-      <button id='filter-button' onClick={renderWithFilter}>Filter by Location</button>
+    <div id="items-box">
+      <div id="filter-buttons">
+        <select id='filter-borough' onChange={neighboorhoodPicker}>
+          <option value="default">Choose Your Borough</option>
+          <option value="Brooklyn">Brooklyn</option>
+          <option value="Manhattan">Manhattan</option>
+        </select>
+        {neighboorhoodValues}
+        <button id='filter-button' onClick={renderWithFilter}>Filter by Location</button>
+      </div>
+
       {itemDiv}
     </div>
   )

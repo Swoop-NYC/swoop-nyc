@@ -41,11 +41,13 @@ const App = () => {
 
   return (
     <Router>
-    <div>
+    <div id='app-div'>
     <Header></Header>
+    <div id='title-div'>
     <h1>STOOPING</h1>
-    <h2>(Stuh-oop-ing)</h2>
+    <h2>(Stu-oop-ing)</h2>
     <h1>The Proccess of Recycling goods for eachtohers benefits</h1>
+    </div>
     </div>
       <Routes>
         <Route path='/createpost' element={<CreatePost/>}></Route>
