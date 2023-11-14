@@ -18,6 +18,7 @@ body {
     justify-content: space-around;
     width: 100vw;
     height: 75px;
+    margin-bottom: 100px;
 }
 
 #header-logo {
@@ -70,7 +71,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin: auto;
 }
 
 .form-field {
@@ -143,7 +143,31 @@ span {
 }
 
 #user-img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
+}
+
+#items-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 600px;
+}
+
+.items-post {
+    border: 2px solid wheat;
+    max-width: 300px;
+}
+
+#filter-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#items-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
