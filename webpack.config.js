@@ -92,9 +92,6 @@ module.exports = {
       '/login': 'http://localhost:3000',
       '/create-new-user': 'http://localhost:3000',
     },
-    resolve: {
-      extensions: ['.js', '.jsx'],
-    },
   },
 };
 
