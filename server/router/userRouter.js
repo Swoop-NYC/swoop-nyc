@@ -8,7 +8,7 @@ const userController = require('../controller/userController');
 // })
 
 //POST - create a new user
-router.post('/', userController.createUser, (req, res)=>{
+router.post('/', userController.testCreds, userController.createUser, (req, res)=>{
     res.redirect('/listings')
 })
 
