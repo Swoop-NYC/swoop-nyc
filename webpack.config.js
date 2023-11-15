@@ -90,7 +90,7 @@ module.exports = {
       '/createpost': 'http://localhost:3000',
       '/all-listings': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
-    },
+      '/create-new-user': 'http://localhost:3000',
   },
   resolve: {
     extensions: ['.js', '.jsx'],

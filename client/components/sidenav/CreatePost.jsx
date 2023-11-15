@@ -21,6 +21,9 @@ const CreatePost = () => {
   //this piece of state will update the html for the following funciton
   const [neighboorhoodValues, setNeighboorhoodValues] = useState([]);
 
+  //make the home page goes away
+  // setShowHomePage(false)
+
   //this function makes a post reques to DB. Called within createItem()
   const sendToDB = async (item) => {
     //add image to supabase and get the URL back, add the URL to the request body

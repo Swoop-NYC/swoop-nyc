@@ -10,7 +10,8 @@ import Login from './sidenav/Login.jsx';
 import Signup from './sidenav/SignUp.jsx';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { updateItems } from './reducers/swoopSlice.js';
+import { updateItems } from './reducers/itemSlice.js';
+import Home from './Home.jsx';
 
 
 const App = () => {
@@ -42,21 +43,16 @@ const App = () => {
   return (
     <Router>
     <div id='app-div'>
-    <Header></Header>
-    <div id='title-div'>
-    <h1>STOOPING</h1>
-    <h2>(Stu-oop-ing)</h2>
-    <h1>The Proccess of Recycling goods for eachtohers benefits</h1>
-    </div>
+      <Header />
     </div>
       <Routes>
-        <Route path='/createpost' element={<CreatePost/>}></Route>
-        <Route path='/listings' element={<Listings/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/signup' element={<Signup/>}></Route>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/createpost' element={<CreatePost />}></Route>
+        <Route path='/listings' element={<Listings />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/signup'element={<Signup />}></Route>
       </Routes>
     </Router>
-
   )
 }
 
