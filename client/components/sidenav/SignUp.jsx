@@ -29,7 +29,7 @@ const Signup = () => {
       body: JSON.stringify({user: user}),
       };
     try {
-      const serverReponse = await fetch('http://localhost:3000/sign/', options);
+      const serverReponse = await fetch('http://localhost:3000/signup/', options);
     }
     catch (err) {
       //if the login fails, throw this error below the login button

@@ -8,7 +8,7 @@ router.post('/login', userController.verifyUser, (req, res)=>{
 })
 
 //POST - create a new user
-router.post('/', userController.createUser, (req, res)=>{
+router.post('/signup', userController.createUser, (req, res)=>{
     res.status(200).send('sign up success'); //if success, redirect user to home
 })
 
