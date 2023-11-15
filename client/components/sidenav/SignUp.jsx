@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const Signup = () => {
   const [signinMessage, setSigninMessage] = useState([]);
-
   //async function that will check to see if the user exists
   const createUser = async () => {
     //grab the form fields and build an object
