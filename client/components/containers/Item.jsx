@@ -36,7 +36,6 @@ const Item = () => {
     // grabItems();
     if (items !== undefined) {
       for (let i = items.length -1; i >= 0; i--) {
-        console.log('inside of the loop')
         itemDiv.push(
           <div id={items[i].title} className='items-post'>
             <h4>{items[i].title}</h4>
@@ -93,7 +92,7 @@ const Item = () => {
           filter.push(
             <div id={items[i].title} className='items-post'>
               <h4>{items[i].title}</h4>
-              <img src={items[i].image} style={{height: '300px', width: '300px'}}/>
+              <img className='image-card' src={items[i].image}/>
               <p>{items[i].location[0]},{items[i].location[1]} </p>
               <p>{items[i].description}</p>
               <p>Drop Date: {items[i].dropDate}</p>
@@ -107,18 +106,20 @@ const Item = () => {
     }
   render();
   return (
-    <div id="items-box">
-      <div id="filter-buttons">
-        <select id='filter-borough' onChange={neighboorhoodPicker}>
-          <option value="default">Choose Your Borough</option>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="Manhattan">Manhattan</option>
+    <div className="items-box">
+      <div className="filter-buttons flex-center">
+        <select className='filter-by-borough' onChange={neighboorhoodPicker} >
+          <option className='filter-button' value="default">Choose Your Borough</option>
+          <option className='filter-button' value="Brooklyn">Brooklyn</option>
+          <option className='filter-button' value="Manhattan">Manhattan</option>
         </select>
         {neighboorhoodValues}
-        <button id='filter-button' onClick={renderWithFilter}>Filter by Location</button>
+        <button className='filter-by-location' onClick={renderWithFilter}>Filter by Location</button>
       </div>
-
-      {itemDiv}
+      <div className="item-div">
+        {itemDiv}
+      </div>
+      
     </div>
   )
 }
