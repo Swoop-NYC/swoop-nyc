@@ -24,7 +24,7 @@ itemController.createItem = (req, res, next) => {
             next()
         }
         catch(e) {
-            return next({erro: e})
+            return next({error: e})
         }
     }
 

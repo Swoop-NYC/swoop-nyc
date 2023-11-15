@@ -7,7 +7,6 @@ const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
 const itemController = require('./controller/itemController.js')
 const path = require('path')
-//install path
 
 //set up cors policy 
 var corsOptions = {
@@ -15,8 +14,10 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
+//require mongoose and require the dotenv for the key for the DB
 const mongoose = require('mongoose')
 require('dotenv').config()
+
 
 app.use(express.json());
 mongoose.connect(process.env.DATABASE_CONNECTION_KEY)
@@ -24,48 +25,51 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
   });
 
+const reactRouterStaticPath = path.join(__dirname, '../build/index.html');
+//create-item is post request
 app.use('/create-item', itemRouter)
+//route for get requests from front end to return all objects from DB
 app.use('/all-listings', itemController.getAllItems, (req, res) => {
     res.status(200).json(res.locals.allListings)
 })
 
-const staticPath = path.join(__dirname, '../build/index.html');
-console.log('build html ',staticPath);
-// const staticPath2 = path.join(__dirname, '../index.html');
-// console.log('home html', staticPath2);
+// const reactRouterStaticPath2 = path.join(__dirname, '../index.html');
+// console.log('home html', reactRouterStaticPath2);
 // app.get('/createpost', express.static(path.join(__dirname, '../build/index.html')));
+
 app.use('/createpost', (req, res)=>{
-    res.status(200).sendFile(staticPath)
+    res.status(200).sendFile(reactRouterStaticPath)
 });
 app.use('/listings', (req, res)=>{
-    res.status(200).sendFile(staticPath)
+    res.status(200).sendFile(reactRouterStaticPath)
 });
 app.use('/signup', (req, res)=>{
-    res.status(200).sendFile(staticPath)
+    res.status(200).sendFile(reactRouterStaticPath)
 });
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
+
 // app.use('/login', userRouter);
 
+//TODO: working on getting the userController method update to check to see if users can signup 
 // app.use('/signup', userRouter);
 
-//endpoints for handling user login or user signup
+//used for serving the application 
 app.use('/', (req, res)=> {
     res.status(200).sendFile(path.join(__dirname, '../index.html'))
 });
 
-
-
+//wild card route handler 
 app.use('*', (req, res) => {
     res.status(404).send('File Not Found');
   });
 
-
+//global error handler 
 app.use((err, req, res, next) => {
     const defaultErr = {
         log: 'Express error handler caught unknown middleware error',
         status: 500,
-        message: { err: 'there is an error and its your fault' }
+        message: { err: err.message }
     }
     const errorObj = Object.assign(defaultErr, err);
     res.status(errorObj.status).json(errorObj.message);

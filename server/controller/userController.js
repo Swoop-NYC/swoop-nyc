@@ -2,12 +2,21 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 const userController = {};
 
-userController.createUser = async (req, res, next)=>{
+userController.createUser = async (req, res, next) => {
     const {username, password} = req.body;
+    const newUser = new User ({username: username, password:password});
 
-    const newUserInfo = new User ({username: username, password:password})
-    const {err, newUser} = await newUserInfo.save();
-    if (err) next (err);
+    try {
+        const DBresponse = await newUserInfo.create({newUser});
+    }
+    catch (err) {
+        const error = {
+            log: 'userController.createUser',
+            status: 400,
+            message: { error: err.message }
+        }
+        next(error);
+    }
     next();
 }
 
