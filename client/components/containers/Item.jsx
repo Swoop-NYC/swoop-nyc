@@ -104,19 +104,22 @@ const renderItemsComponent = renderItems.map((item) => (
   };
   
   return (
-    <div id='items-box'>
-      <div id='filter-buttons'>
-        <select id='filter-borough' onChange={neighborhoodPicker}>
-          <option value='default'>Choose Your Borough</option>
-          <option value='Brooklyn'>Brooklyn</option>
-          <option value='Manhattan'>Manhattan</option>
+    <div className='items-box'>
+      <div className='filter-buttons flex-center'>
+        <select className='filter-by-borough' onChange={neighborhoodPicker}>
+          <option className='filter-button' value='default'>Choose Your Borough</option>
+          <option className='filter-button' value='Brooklyn'>Brooklyn</option>
+          <option className='filter-button' value='Manhattan'>Manhattan</option>
         </select>
         {neighborhoodValues}
-        <button id='filter-button' onClick={renderWithFilter}>
+        <button className='filter-by-location' onClick={renderWithFilter}>
           Filter by Location
         </button>
       </div>
+      <div className='item-div'>
       {renderItemsComponent}
+      </div>
+      
     </div>
   );
 }
