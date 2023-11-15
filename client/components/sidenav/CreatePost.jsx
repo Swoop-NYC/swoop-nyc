@@ -13,13 +13,16 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 //TODO: Add CSS for error message <p> tag 
 //onClickOutside={(date) => setDropDate(date)}
 
-const CreatePost = () => {
+const CreatePost = ({setShowHomePage}) => {
   //this piece of state will change based on the POST request
   const [postOutcome, setPostOutcome] = useState([])
   //this piece of state will be the default date for the date picker  (set to the current date)
   const [dropDate, setDropDate] = useState(new Date());
   //this piece of state will update the html for the following funciton
   const [neighboorhoodValues, setNeighboorhoodValues] = useState([]);
+
+  //make the home page goes away
+  setShowHomePage(false)
 
   //this function makes a post reques to DB. Called within createItem()
   const sendToDB = async (item) => {
