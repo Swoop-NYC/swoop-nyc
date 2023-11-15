@@ -1,12 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-const Login = ({setShowHomePage}) => {
+const Login = () => {
 
   const [loginMessage, setLoginMessage] = useState([]);
-
-  //make the home page goes away
-  setShowHomePage(false)
 
   //async function that will check to see if the user exists
   const checkUser = async () => {

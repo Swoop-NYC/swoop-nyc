@@ -1,10 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Signup = ({setShowHomePage}) => {
-  const [signinMessage, setSigninMessage] = useState([]);
-  //make the home page goes away
-  setShowHomePage(false)
+const Signup = () => {
 
   //async function that will check to see if the user exists
   const createUser = async () => {

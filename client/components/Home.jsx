@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Home = ({showHomePage,setShowHomePage}) => {
-  setShowHomePage(true);
+const Home = () => {
+
 
   return (
     <>
-    { showHomePage &&
+  
     <div>
       This is a home page
       <div id='title-div'>
@@ -14,7 +14,7 @@ const Home = ({showHomePage,setShowHomePage}) => {
       <h1>The Proccess of Recycling goods for eachtohers benefits</h1>
       </div>
     </div>
-    }
+    
     </>
    
   )

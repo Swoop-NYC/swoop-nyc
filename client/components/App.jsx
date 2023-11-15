@@ -16,7 +16,6 @@ import Home from './Home.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [showHomePage, setShowHomePage] = useState(true);
 
   // const [fetchMessage, setFetchMessage] = useState([])
   //function to be used inside of the useEffect hook - it will grab data from the DB and then update the state
@@ -47,11 +46,11 @@ const App = () => {
       <Header />
     </div>
       <Routes>
-        <Route path='/' element={<Home showHomePage={showHomePage} setShowHomePage={setShowHomePage} />}></Route>
-        <Route path='/createpost' element={<CreatePost setShowHomePage={setShowHomePage} />}></Route>
-        <Route path='/listings' element={<Listings setShowHomePage={setShowHomePage} />}></Route>
-        <Route path='/login' element={<Login setShowHomePage={setShowHomePage} />}></Route>
-        <Route path='/signup'element={<Signup setShowHomePage={setShowHomePage} />}></Route>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/createpost' element={<CreatePost />}></Route>
+        <Route path='/listings' element={<Listings />}></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/signup'element={<Signup />}></Route>
       </Routes>
     </Router>
   )
