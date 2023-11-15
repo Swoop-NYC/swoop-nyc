@@ -89,6 +89,13 @@ color theme
     justify-content: center;
 }
 
+.header-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+}
+
+
 /*********************** Side Nav ***********************/
 .sideNav {
     height: 45vh;
@@ -136,12 +143,10 @@ input {
     width: 156px;
 }
 
-select {
-    width: 156px;
-}
 
 
 
+/*********************** Sign up***********************/
 #username {
     display: flex;
     gap: 30px;
@@ -173,32 +178,58 @@ span {
     width: 50px;
 }
 
-.header-img {
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
+
+/*********************** Listing ***********************/
+.listing-wrapper{
+    display: flex;
+    flex-direction: column;
 }
 
-#items-box {
+.items-box {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 600px;
+    /* border: 5px solid red; */
+    width: 100%;
+    position: relative;
+    top: 250px; 
+}
+
+.filter-buttons {
+    /* border: 2px solid black; */
+    position: absolute;
+    top: 4vw;
+    left: 25%;
+    padding: 10px 30px;
+}
+.filter-by-borough{
+    margin-right: 20px;
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+
+.filter-by-location{
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
 }
 
 .items-post {
-    border: 2px solid wheat;
-    max-width: 300px;
+    /* border: 2px solid yellow; */
+    padding: 15px;
 }
 
-#filter-buttons {
+
+/*********** ItemDiv to show each card ***********/
+.item-div{
+    border: 5px solid black;
+    background-color: rgb(20,20,130);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    top: 200px;
+    padding: 20px;
+    color: rgb(202, 220, 200);
 }
 
-#items-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+
+

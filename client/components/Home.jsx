@@ -16,6 +16,7 @@ const Home = () => {
       <div className='home-page-text-wrapper'>
         <h1 className='big-line-height'>Recycling goods to <span className='underline'>make this world a better place</span></h1>
       </div>
+      
       </div>
     </div>
     

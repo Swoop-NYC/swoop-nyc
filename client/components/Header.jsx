@@ -12,14 +12,14 @@ const Header = () => {
       {/* will hold our hamburger menu icon, when clicked it will show the component for the side nav 
           As well as an image tag that has our site logo*/}
       <div id='header-left'>
-        <Link to='/'><img className='header-img' src='https://icon2.cleanpng.com/20180131/lrw/kisspng-rubber-duck-toy-bathtub-duck-transparent-png-5a718ed0a87b54.9020242215173915686901.jpg'></img></Link>
+        <Link to='/'><img className='header-img' src='https://png.pngtree.com/element_our/20190602/ourlarge/pngtree-green-cartoon-stair-illustration-image_1415214.jpg'></img></Link>
       </div>
       <div id='header-right'>
-        <Link to='/user-profile'><img className='header-img' src='https://res.cloudinary.com/teepublic/image/private/s--ro_eGQ0e--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1633446389/production/designs/24746430_0.jpg'></img></Link>
+        <Link to='/user-profile'><img className='header-img' src='https://cdn-icons-png.flaticon.com/512/9131/9131529.png'></img></Link>
         <button 
           className='hamburger-menu-button' 
           onClick={() => setDisplayMenu((prev) => !prev)}>
-          <span class="material-symbols-outlined">menu</span>
+          <span className="material-symbols-outlined">menu</span>
         </button>
       </div>
       
