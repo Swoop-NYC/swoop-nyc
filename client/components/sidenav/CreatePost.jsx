@@ -41,7 +41,7 @@ const CreatePost = () => {
         .getPublicUrl(item.image.name)
       
         //update value of item.image to the string of the url
-        item.image = imageUrl.data.publicUrl;
+        item.image = imageUrl.data.publicUrl; //TODO: remember to change this
         console.log('data received from image upload', imageUrl.data.publicUrl);
     } catch (err) {console.log(err);}
 

@@ -21,21 +21,24 @@ export const itemSlice = createSlice({
       state.filteredItems = items;
     },
     filteredItemsByNeighborhood: (state, action) => {
+        console.log('now inside of the filteredItemsByNeighborhood reducer');
+        console.log('action.payload: ', action.payload);
         const selectedNeighborhood = action.payload;
         // below will reassign filteredItems by going through the items array, and see if the selectedNeighborhood matches the item's neighborhood property
-        state.filteredItems = state.items.filter(item => item.location[1] === action.payload.neighborhood); // pass in action.payload.neighborhood
+        state.filteredItems = state.items.filter(item => item.location[1] === selectedNeighborhood); // pass in action.payload.neighborhood
         // send in action.payload.neighborhood from userInput, via filter button
+        console.log('this is the state.filteredItems: ', state.filteredItems);
     }
   },
 });
 export const { addItem, updateItems, filteredItemsByNeighborhood } = itemSlice.actions;
 
-export default itemSlice.reducer
+export default itemSlice.reducer;
 
 // item{
-//   title:...
-//   image: // source
-//   description: //...
-//   dropDate: //...
-//   location: // [burrough, neighborhood] 
-// }
+// _id: ('1823987123'),
+//  title: 'computer',
+//  description: 'can be found on the street',
+//  location: ['Brooklyn', 'Bushwick'],
+//  dropDate: 2023-11-15T15:48:16.430Z,
+// };
