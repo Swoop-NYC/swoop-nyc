@@ -16,7 +16,11 @@ const Header = () => {
       </div>
       <div id='header-right'>
         <Link to='/user-profile'><img className='header-img' src='https://res.cloudinary.com/teepublic/image/private/s--ro_eGQ0e--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1633446389/production/designs/24746430_0.jpg'></img></Link>
-        <button className='hamburger-menu-button' onClick={() => setDisplayMenu((prev) => !prev)}><span class="material-symbols-outlined">menu</span></button>
+        <button 
+          className='hamburger-menu-button' 
+          onClick={() => setDisplayMenu((prev) => !prev)}>
+          <span class="material-symbols-outlined">menu</span>
+        </button>
       </div>
       
       <Routes>
@@ -24,11 +28,31 @@ const Header = () => {
       </Routes>
       {/* ********************Flip Menu on and off ***************************** */}
       {displayMenu && <div className='menubar-wrapper'>
-        <div id='sideNav'>
-          <Link to='/createpost' onClick={() => setDisplayMenu((prev) => !prev)}>CreatePost</Link>
-          <Link to='/listings' onClick={() => setDisplayMenu((prev) => !prev)}>Listings</Link>
-          <Link to='/signup' onClick={() => setDisplayMenu((prev) => !prev)}>Signup</Link>
-          <Link to='/login' onClick={() => setDisplayMenu((prev) => !prev)}>Login</Link>
+        <div className='sideNav'>
+          <Link 
+            to='/createpost' 
+            onClick={() => setDisplayMenu((prev) => !prev)}
+            className='white-blue-wrapper flex-center'>
+              CreatePost
+          </Link>
+          <Link 
+            to='/listings' 
+            onClick={() => setDisplayMenu((prev) => !prev)}
+            className='white-blue-wrapper flex-center'>
+              Listings
+            </Link>
+          <Link 
+            to='/signup' 
+            onClick={() => setDisplayMenu((prev) => !prev)}
+            className='white-blue-wrapper flex-center'>
+              Signup
+          </Link>
+          <Link 
+            to='/login' 
+            onClick={() => setDisplayMenu((prev) => !prev)}
+            className='white-blue-wrapper flex-center'>
+              Login
+          </Link>
         </div>
       </div>}
     </div>

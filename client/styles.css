@@ -5,8 +5,8 @@
 
 body {
     display: flex;
-    background-color: rgba(100,100,180);
-    padding: 0px 30px;
+    background-color: rgba(80,80,220);
+    padding: 0px 35px;
 }
 
 #root {
@@ -15,19 +15,40 @@ body {
     align-items: center;
     flex-direction: row;
 }
+/* 
+color theme
+
+
+*/
+
+
 /*********************** Utility class***********************/
 .blue-white-wrapper{
-    background-color: rgb(30,30,255);
+    background-color: rgb(10,10,255);
     color: white;
     padding: 15px;
     border-radius: 20px;
     width: 200px;
+    box-shadow: 5px 5px 5px blue;
+}
+.white-blue-wrapper{
+    background-color: white;
+    color: rgb(20,20,255);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80px;
 }
 .underline{
     text-decoration: underline;
 }
 .big-line-height{
     line-height: 1.5em;
+}
+.flex-center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
 /*********************** Homepage ***********************/
 .home-page-text-wrapper{
@@ -41,7 +62,7 @@ body {
     left: 0;
     display: flex;
     justify-content: space-around;
-    width: 95%;
+    width: 97%;
     height: 75px;
     padding: 10px;
 }
@@ -58,62 +79,58 @@ body {
 .hamburger-menu-button{
     background-color: rgb(240,240,240);
     border: none;
+    height: 70px;
     border-radius: 20px;
 }
 
-/*********************** Side Nav ***********************/
-#sideNav {
+.material-symbols-outlined{
     display: flex;
-    height: 95vh;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    background-color: rgba(100,100,250,0.6);
-    color:white;
-    width: 10rem;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.503);
+    justify-content: center;
 }
 
+/*********************** Side Nav ***********************/
+.sideNav {
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(10,10,250,1);
+    color:white;
+    width: 9rem;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.503);
+    padding-top: 40px;
+    border-radius: 20px;
+}
+/*********************** Create Post form ***********************/
 #post-form {
     background-color: #FFF9F0;
     display: flex;
-    height: 80vh;
+    height: 70vh;
     width: 50vw;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    gap:20px;
     align-items: center;
     margin-top: 100px;
     flex-direction: column;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.505);
-
 }
-
-
 
 .form-field {
     width: 90%;
     display: flex;
     justify-content: space-between;
-    max-width: inherit;
+    margin-top: 40px;
 }
 
 label {
-    font-size: 20px;
+    font-size: 16px;
 }
 
-#form-field-left {
-    display: flex;
-    width: 100%;
-    margin: auto;
-}
 
-#form-field-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 200px;
-    margin: auto;
-}
 
 input {
     width: 156px;
