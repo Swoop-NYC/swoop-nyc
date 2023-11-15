@@ -45,10 +45,9 @@ const App = () => {
     <Router>
     <div id='app-div'>
       <Header />
-      {showHomePage && <Home />}
     </div>
       <Routes>
-        
+        <Route path='/' element={<Home showHomePage={showHomePage} setShowHomePage={setShowHomePage} />}></Route>
         <Route path='/createpost' element={<CreatePost setShowHomePage={setShowHomePage} />}></Route>
         <Route path='/listings' element={<Listings setShowHomePage={setShowHomePage} />}></Route>
         <Route path='/login' element={<Login setShowHomePage={setShowHomePage} />}></Route>
