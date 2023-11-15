@@ -4,7 +4,7 @@ import swoopSlice from './swoopSlice.js'
 const store = configureStore({
     devTools: true,
     reducer: {
-        swoop: swoopSlice,
+        swoop: swoopSlice
     }
 });
 

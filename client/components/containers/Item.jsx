@@ -8,7 +8,6 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 const Item = () => {
 
   //using this to try and get the listings page to pull info from the DB when you go directly to this page instead of navigating from the home page
-
   // const dispatch = useDispatch();
   // const grabItems = async () => {
   //   try {
@@ -31,7 +30,7 @@ const Item = () => {
   const items = useSelector((state) => {return state.swoop.items})
   const [itemDiv, setItemDiv] = useState([]);
 
-  //loop through the list from back to front & push all of the items in the itemDiv
+  //loop through the list from back to front & push all of the 
   const render = () => {
     // grabItems();
     if (items !== undefined) {
@@ -102,7 +101,6 @@ const Item = () => {
         }
       }
     }
-    setItemDiv([]);
     setItemDiv(filter)
     }
   render();

@@ -32,7 +32,7 @@ const Header = () => {
       </div>
       <div id='header-right'>
         <Link to='/user-profile'><img id='user-img' src='https://m.media-amazon.com/images/I/51KdEaTeLEL.__AC_SX300_SY300_QL70_FMwebp_.jpg'></img></Link>
-        <button onClick={showMenu}><span class="material-symbols-outlined">menu</span></button>
+        <button onclick onClick={showMenu}><span class="material-symbols-outlined">menu</span></button>
       </div>
       <Routes>
         {/* Takes you to the login page */}
