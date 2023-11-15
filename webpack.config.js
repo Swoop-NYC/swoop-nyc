@@ -12,14 +12,14 @@ module.exports = {
   //'output' property tells webpack where to emit the bundles it creates and how to name these files
   output: {
     path: path.join(__dirname, '/build'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
     // publicPath: '/',
   },
-  mode: process.env.NODE_EV, //or production and development 
+  mode: process.env.NODE_EV, //or production and development
   resolve: {
     alias: {
-      '@material/web': path.resolve(__dirname, './node_modules/@material/web/')
-    }
+      '@material/web': path.resolve(__dirname, './node_modules/@material/web/'),
+    },
     // modules: [
     //   path.resolve(__dirname, "node_modules"),
     // ],
@@ -33,53 +33,56 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-            //['@babel/env', '@babel/react']
-            ['@babel/preset-env', {targets: "defaults"}], //transpiles ES6 into ES5
-            ['@babel/preset-react', {targets: "defaults"}] //transpiles react into JS
-            ]
-          }
-        }
+              //['@babel/env', '@babel/react']
+              ['@babel/preset-env', { targets: 'defaults' }], //transpiles ES6 into ES5
+              ['@babel/preset-react', { targets: 'defaults' }], //transpiles react into JS
+            ],
+            plugins: [
+              '@babel/plugin-transform-runtime',
+              '@babel/transform-async-to-generator',
+            ],
+          },
+        },
       },
       {
         test: /\.(css|scss)$/, ///\.s?ss$/
         exclude: /node_modules/,
-        use: [ //order is RIGHT TO LEFT
+        use: [
+          //order is RIGHT TO LEFT
           // Creates `style` nodes from JS strings
-          "style-loader",
+          'style-loader',
           // Translates CSS into CommonJS
-          "css-loader",
+          'css-loader',
           // Compiles Sass to CSS
-          "sass-loader",
-        ]
+          'sass-loader',
+        ],
       },
-    ]
-  },//module end
+    ],
+  }, //module end
   plugins: [
-    new HtmlWebpackPlugin(
-      {
-        title: 'Development',
-        //specify template to build new index html file off of
-        template: './index.html'
-      }
-    ),
+    new HtmlWebpackPlugin({
+      title: 'Development',
+      //specify template to build new index html file off of
+      template: './index.html',
+    }),
     new Dotenv({
       path: './.env',
-      safe: true
-    })
+      safe: true,
+    }),
   ],
   devServer: {
     // hot: true, //hot module reload
     static: {
-        // directory: path.resolve(__dirname),
-        publicPath: '/build/',
-//can also set this up in entry, many more config options
-      },
+      // directory: path.resolve(__dirname),
+      publicPath: '/build/',
+      //can also set this up in entry, many more config options
+    },
     //specify port for dev server launch, default is 8080
     port: 8080,
-      //allows us to fetch to from localhost 3000 when we're on 8080
+    //allows us to fetch to from localhost 3000 when we're on 8080
     proxy: {
       //endpoint cannot be route, context required
-      
+
       '/css': 'http://localhost:3000',
       '/signup': 'http://localhost:3000',
       '/create-item': 'http://localhost:3000',
@@ -88,9 +91,11 @@ module.exports = {
       '/all-listings': 'http://localhost:3000',
       '/login': 'http://localhost:3000',
       '/create-new-user': 'http://localhost:3000',
-    }
   },
-}
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+};
 
 // const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
