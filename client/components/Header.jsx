@@ -6,22 +6,19 @@ import { useState } from 'react';
 
 const Header = () => {
   //local component state variable to hold the menu
-  const [menu, setMenu] = useState([]);
-  //function to delete the menu div
-  const removeMenu = () => {
-    setMenu([]);
-  }
-  //function to create the side menu onClick of the Menu button
-  const showMenu = () => {
-    setMenu([
-    <div id='sideNav'>
-      <Link to='/createpost' onClick={removeMenu}>CreatePost</Link>
-      <Link to='/listings' onClick={removeMenu}>Listings</Link>
-      <Link to='/signup' onClick={removeMenu}>Signup</Link>
-      <Link to='/login' onClick={removeMenu}>Login</Link>
-      </div>
-      ])
-  }
+  // const [menu, setMenu] = useState([]);
+  // //function to delete the menu div
+  // const removeMenu = () => {
+  //   setMenu([]);
+  // }
+  // //function to create the side menu onClick of the Menu button
+  // const showMenu = () => {
+  //   setMenu([
+    
+  //     ])
+  // }
+
+  const [displayMenu, setDisplayMenu] = useState(false);
 
   return (
     <div id='header'>
@@ -32,7 +29,7 @@ const Header = () => {
       </div>
       <div id='header-right'>
         <Link to='/user-profile'><img id='user-img' src='https://m.media-amazon.com/images/I/51KdEaTeLEL.__AC_SX300_SY300_QL70_FMwebp_.jpg'></img></Link>
-        <button onClick={showMenu}><span class="material-symbols-outlined">menu</span></button>
+        <button onClick={() => setDisplayMenu((prev) => !prev)}><span class="material-symbols-outlined">menu</span></button>
       </div>
       
       <Routes>
@@ -42,7 +39,14 @@ const Header = () => {
         {/* Renders the dropdown menu on the page */}
         {/* <Route path='/dropdown/*' element={<SideNav/>}></Route> */}
       </Routes>
-        {menu}
+      {displayMenu && <div className='menubar-wrapper'>
+        <div id='sideNav'>
+          <Link to='/createpost' onClick={() => setDisplayMenu((prev) => !prev)}>CreatePost</Link>
+          <Link to='/listings' onClick={() => setDisplayMenu((prev) => !prev)}>Listings</Link>
+          <Link to='/signup' onClick={() => setDisplayMenu((prev) => !prev)}>Signup</Link>
+          <Link to='/login' onClick={() => setDisplayMenu((prev) => !prev)}>Login</Link>
+        </div>
+      </div>}
     </div>
   )
 }
