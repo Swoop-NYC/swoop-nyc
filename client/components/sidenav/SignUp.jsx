@@ -49,7 +49,7 @@ return (
       <label>Password:</label>
       <input type='password' id='password'></input>
     </div>
-    <button onClick={createUser}>Login</button>
+    <button onClick={createUser}>Create Account</button>
     {signupMessage} 
   </div>
 )
