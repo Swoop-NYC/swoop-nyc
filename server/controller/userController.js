@@ -3,11 +3,17 @@ const bcrypt = require('bcryptjs')
 const userController = {};
 
 userController.createUser = async (req, res, next) => {
-    const {username, password} = req.body;
-    const newUser = new User ({username: username, password:password});
+    const {username, password} = req.body.user;
+    console.log(username, password);
 
+    // if (username.matches())
+
+
+    const newUser = ({username: username, password:password});
     try {
-        const DBresponse = await newUserInfo.create({newUser});
+        const DBresponse = await User.create(newUser);
+        res.locals.newUser = DBresponse;
+        console.log(DBresponse)
     }
     catch (err) {
         const error = {

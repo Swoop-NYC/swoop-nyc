@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const Signup = () => {
-  const [signinMessage, setSigninMessage] = useState([]);
+  const [signupMessage, setsignupMessage] = useState([]);
 
   //async function that will check to see if the user exists
   const createUser = async () => {
@@ -10,18 +10,20 @@ const Signup = () => {
     const username = document.querySelector('#username');
     const password = document.querySelector('#password');
     const user = {username: username.value, password: password.value}
+    console.log('before the post request: ', username.value)
     //checks to make sure form fields are not empty
     for (const key in user) {
-      if (key === '') {
-        setSigninMessage([<p>Please input a valid username or password.</p>])
+      if (user[key] === '') {
+        setsignupMessage([<p>Please input a valid username or password.</p>])
         return;
       }
     }
     //checks to make sure password does not have any special characters defined in the regex expression. 
-      if (password.value.matches('^(?=*[@$%*#&])$')) {
-        setSigninMessage([<p>Cannot use any of the following special characters in your password: @, $, %, *, #, &.</p>])
-        return;
-      }
+      // if (password.value.matches('^(?=*[@$%*#&])$')) {
+      //   setsignupMessage([<p>Cannot use any of the following special characters in your password: @, $, %, *, #, &.</p>])
+      //   return;
+      // }
+
       //construct the object I am going to POST to the server 
     const options = {
       method: 'POST',
@@ -29,27 +31,27 @@ const Signup = () => {
       body: JSON.stringify({user: user}),
       };
     try {
-      const serverReponse = await fetch('http://localhost:3000/signup/', options);
+      const serverReponse = await fetch('http://localhost:3000/create-new-user/', options);
     }
     catch (err) {
       //if the login fails, throw this error below the login button
-      setSigninMessage([<p id='error'>Unable to create account. Please try again.</p>])
+      setsignupMessage([<p id='error'>Unable to create account. Please try again.</p>])
     }
   }
 
 return (
   <div id='login'>
   <h1>SignUp</h1>
-    <div id="username">
+    <div id="username-field">
       <label>User Name:</label>
       <input type='text' id='username'></input>
     </div>
-    <div id="password">
+    <div id="password-field">
       <label>Password:</label>
-      <input type='password' id='passwordww'></input>
+      <input type='password' id='password'></input>
     </div>
     <button onClick={createUser}>Login</button>
-    {signinMessage}
+    {signupMessage} 
   </div>
 )
 }

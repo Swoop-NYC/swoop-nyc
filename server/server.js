@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express();
 const PORT = 3000;
-// const userRouter = require('./router/userRouter');
+const userRouter = require('./router/userRouter');
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const itemRouter = require('./router/itemRouter.js');
@@ -28,6 +28,10 @@ mongoose.connection.once('open', () => {
 const reactRouterStaticPath = path.join(__dirname, '../build/index.html');
 //create-item is post request
 app.use('/create-item', itemRouter)
+
+//TODO: working on getting the userController method update to check to see if users can signup 
+app.use('/create-new-user', userRouter);
+
 //route for get requests from front end to return all objects from DB
 app.use('/all-listings', itemController.getAllItems, (req, res) => {
     res.status(200).json(res.locals.allListings)
@@ -50,9 +54,6 @@ app.use('/signup', (req, res)=>{
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 // app.use('/login', userRouter);
-
-//TODO: working on getting the userController method update to check to see if users can signup 
-// app.use('/signup', userRouter);
 
 //used for serving the application 
 app.use('/', (req, res)=> {
