@@ -28,7 +28,7 @@ const Item = () => {
   // grabItems();
 
   //useselector to subscribe to the items piece of state to populate 
-  const items = useSelector((state) => {return state.swoop.items})
+  const items = useSelector((state) => {return state.item.items})
   const [itemDiv, setItemDiv] = useState([]);
 
   //loop through the list from back to front & push all of the items in the itemDiv
