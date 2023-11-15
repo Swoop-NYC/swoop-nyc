@@ -10,7 +10,7 @@ import Login from './sidenav/Login.jsx';
 import Signup from './sidenav/SignUp.jsx';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { updateItems } from './reducers/swoopSlice.js';
+import { updateItems } from './reducers/itemSlice.js';
 import Home from './Home.jsx';
 
 
