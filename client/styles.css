@@ -226,7 +226,7 @@ span {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 150px;
+    top: 200px;
     padding: 20px;
     color: rgb(202, 220, 200);
 }
