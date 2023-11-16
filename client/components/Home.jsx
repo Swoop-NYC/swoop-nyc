@@ -1,11 +1,22 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { filteredItemsByNeighborhood } from './reducers/itemSlice';
+
 
 const Home = () => {
+  const dispatch = useDispatch();
+  //grab the items from the store
+  const itemsFromStore = useSelector((state) => state.item.items);
+  
+  // This function make sure that when user click the homepage we are reseting the store to be ALL items
+  const resetNeighborhood = () => {
+    dispatch(filteredItemsByNeighborhood([]));
+  }
+  resetNeighborhood();
 
 
   return (
     <>
-  
     <div>
       <div className='title-div'>
       <h2>Welcome to ...</h2>

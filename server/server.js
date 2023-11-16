@@ -16,7 +16,7 @@ app.use(cors(corsOptions));
 
 //require mongoose and require the dotenv for the key for the DB
 const mongoose = require('mongoose')
-require('dotenv').config()
+require('dotenv').config();
 
 
 app.use(express.json());

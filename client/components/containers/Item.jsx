@@ -10,7 +10,7 @@ const Item = () => {
   const items = useSelector((state) => {
     return state.item.items;
   });
-  const [itemDiv, setItemDiv] = useState([]);
+  // const [itemDiv, setItemDiv] = useState([]);
   const [neighborhoodValues, setNeighborhoodValues] = useState([]);
   const filteredItems = useSelector((state) => {
     return state.item.filteredItems;
@@ -23,10 +23,11 @@ const Item = () => {
 
   console.log('filteredItems: ', filteredItems); // Filtered items
   console.log('items:', items); // ALL items
+  // console.log('itemDiv: ', itemDiv);
   // renderItems will check if theres items in the filteredItems array, if it is, it will renderthe filter. if there are no items in the filteredItems, it will render ALL listings(itemDiv)
   // console.log('length:', filteredItems.length)
 
-  let renderItems = filteredItems.length > 0 ? filteredItems : itemDiv;
+  let renderItems = filteredItems.length > 0 ? filteredItems : items;
   console.log('renderitems: ', renderItems);
   // console.log('renderItems: ', renderItems);
   // render();
