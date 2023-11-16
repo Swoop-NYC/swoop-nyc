@@ -5,6 +5,7 @@ export const userSlice = createSlice({
     initialState: {
         currentUser: {},
         items: [],
+        favItems: [],
         isLoggedIn: false
     },
     reducers: {

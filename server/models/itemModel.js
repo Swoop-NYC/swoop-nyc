@@ -8,7 +8,8 @@ const itemSchema = new Schema({
     description: {type: String, required: true},
     location: {type: Array, required: true},
     dropDate: {type: Date, default: Date.now},
-    expireAt: {type: Date, expires: '1d'}
+    expireAt: {type: Date, expires: '1d'},
+    isFav: {type: Boolean, default: false}
 })
 
 module.exports = mongoose.model('Item', itemSchema)

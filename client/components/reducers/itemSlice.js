@@ -13,6 +13,9 @@ export const itemSlice = createSlice({
       };
       state.items.push(newItem); // update state here
     },
+    addFavItem: (state, action) => {
+      state.user.favItem.push(item)
+    },
     updateItems: (state, action) => {
       const items = action.payload.response;
       state.items = items;

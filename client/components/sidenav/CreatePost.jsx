@@ -89,7 +89,7 @@ const CreatePost = () => {
 
   //this function will populate a new selector field in the form based on what borough is selected
   const neighboorhoodPicker = () => {
-    const borough = document.querySelector('#form-borough') 
+    const borough = document.querySelector('#form-borough')
     if (borough.value === 'Brooklyn') {
       setNeighboorhoodValues([
         <select id='form-neighboorhood'>
