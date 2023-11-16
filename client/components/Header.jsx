@@ -16,6 +16,7 @@ const Header = () => {
       </div>
       <div id='header-right'>
         <Link to='/user-profile'><img className='header-img' src='https://cdn-icons-png.flaticon.com/512/9131/9131529.png'></img></Link>
+        <Link to='/favorite'><img className='header-img' src='https://w7.pngwing.com/pngs/437/274/png-transparent-heart-red-heart-thumbnail.png'></img></Link>
         <button 
           className='hamburger-menu-button' 
           onClick={() => setDisplayMenu((prev) => !prev)}>
@@ -40,7 +41,13 @@ const Header = () => {
             onClick={() => setDisplayMenu((prev) => !prev)}
             className='white-blue-wrapper flex-center'>
               Listings
-            </Link>
+          </Link>
+          <Link 
+            to='/favorite' 
+            onClick={() => setDisplayMenu((prev) => !prev)}
+            className='white-blue-wrapper flex-center'>
+              Favorite
+          </Link>
           <Link 
             to='/signup' 
             onClick={() => setDisplayMenu((prev) => !prev)}

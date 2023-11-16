@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { updateItems } from './reducers/itemSlice.js';
 import Home from './Home.jsx';
+import FavoriteContainer from './containers/FavoriteContainer.jsx';
 
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/createpost' element={<CreatePost />}></Route>
+        <Route path='/favorite' element={<FavoriteContainer/>}></Route>
         <Route path='/listings' element={<Listings />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup'element={<Signup />}></Route>

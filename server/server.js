@@ -50,6 +50,12 @@ app.use('/listings', (req, res)=>{
 app.use('/signup', (req, res)=>{
     res.status(200).sendFile(reactRouterStaticPath)
 });
+app.use('/favorite', (req, res)=>{
+    res.status(200).sendFile(reactRouterStaticPath)
+});
+app.use('/user-profile', (req, res)=>{
+    res.status(200).sendFile(reactRouterStaticPath)
+});
 
 app.use('/build', express.static(path.join(__dirname, '../build')));
 

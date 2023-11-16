@@ -77,6 +77,7 @@ module.exports = {
       publicPath: '/build/',
       //can also set this up in entry, many more config options
     },
+    historyApiFallback: true, 
     //specify port for dev server launch, default is 8080
     port: 8080,
     //allows us to fetch to from localhost 3000 when we're on 8080
