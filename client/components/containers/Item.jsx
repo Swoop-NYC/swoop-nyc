@@ -66,7 +66,7 @@ const renderItemsComponent = renderItems.map((item) => (
   // };
 
   const neighborhoodPicker = () => {
-    const borough = document.querySelector('#filter-borough');
+    const borough = document.querySelector('.filter-by-borough');
     if (borough.value === 'Brooklyn') {
       setNeighborhoodValues([
         <select id='filter-neighborhood'>

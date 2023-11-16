@@ -2,26 +2,20 @@
     font-family: 'Montserrat';
     font-weight: 800;
   }
-
 body {
     display: flex;
     background-color: rgba(80,80,220);
     padding: 0px 35px;
 }
-
 #root {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
-/* 
+/*
 color theme
-
-
 */
-
-
 /*********************** Utility class***********************/
 .blue-white-wrapper{
     background-color: rgb(10,10,255);
@@ -55,7 +49,6 @@ color theme
     margin: 20px 0px;
 }
 /*********************** Header ***********************/
-
 .header {
     position: fixed;
     top: 0;
@@ -66,36 +59,29 @@ color theme
     height: 75px;
     padding: 10px;
 }
-
 #header-right {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     gap: 30px;
     align-items: center;
-
 }
-
 .hamburger-menu-button{
     background-color: rgb(240,240,240);
     border: none;
     height: 70px;
     border-radius: 20px;
 }
-
 .material-symbols-outlined{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .header-img {
     width: 70px;
     height: 70px;
     border-radius: 70px;
 }
-
-
 /*********************** Side Nav ***********************/
 .sideNav {
     height: 45vh;
@@ -125,34 +111,24 @@ color theme
     border-radius: 20px;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.505);
 }
-
 .form-field {
     width: 90%;
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
 }
-
 label {
     font-size: 16px;
 }
-
-
-
 input {
     width: 156px;
 }
-
-
-
-
 /*********************** Sign up***********************/
 #username {
     display: flex;
     gap: 30px;
     margin-left: 10px;
 }
-
 #login {
     margin-top: 20px;
     display: flex;
@@ -166,33 +142,27 @@ input {
     justify-content: center;
     align-items: center;
 }
-
 #password {
     display: flex;
     gap: 30px;
     margin-left: 10px;
 }
-
 span {
     height: 50px;
     width: 50px;
 }
-
-
 /*********************** Listing ***********************/
 .listing-wrapper{
     display: flex;
     flex-direction: column;
 }
-
 .items-box {
     display: flex;
     /* border: 5px solid red; */
     width: 100%;
     position: relative;
-    top: 250px; 
+    top: 250px;
 }
-
 .filter-buttons {
     /* border: 2px solid black; */
     position: absolute;
@@ -206,19 +176,15 @@ span {
     padding: 15px 20px;
     border-radius: 20px;
 }
-
 .filter-by-location{
     font-size: 25px;
     padding: 15px 20px;
     border-radius: 20px;
 }
-
 .items-post {
     /* border: 2px solid yellow; */
     padding: 15px;
 }
-
-
 /*********** ItemDiv to show each card ***********/
 .item-div{
     border: 5px solid black;
@@ -230,6 +196,3 @@ span {
     padding: 20px;
     color: rgb(202, 220, 200);
 }
-
-
-
