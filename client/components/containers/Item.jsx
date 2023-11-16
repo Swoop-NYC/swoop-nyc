@@ -34,7 +34,12 @@ const Item = () => {
 const renderItemsComponent = renderItems.map((item) => (
   <div key={item.title} className='items-post'>
     <h4>{item.title}</h4>
-    <img src={item.image} style={{ height: '300px', width: '300px' }} />
+    <div className="card-image-wrapper">
+       <img src={item.image} style={{ height: '300px', width: '300px' }} />
+       <svg className='heart-svg'xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="red" fill="none"/>
+      </svg>
+    </div>
     <p>
       {item.location[0]}, {item.location[1]}{' '}
     </p>

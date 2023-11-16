@@ -165,6 +165,18 @@ span {
     position: relative;
     top: 250px;
 }
+.card-image-wrapper{
+    position: relative;
+}
+.heart-svg{
+    position: absolute;
+    top: 5px;
+    right:5px;
+    transition: fill 0.5s
+}
+.heart-svg:hover path{
+    fill: rgb(222, 69, 69);
+}
 .filter-buttons {
     /* border: 2px solid black; */
     position: absolute;
