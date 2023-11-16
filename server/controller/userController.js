@@ -2,8 +2,8 @@ const User = require('../models/userModel')
 const bcrypt = require('bcryptjs')
 const userController = {};
 
-
-userController.testCreds = (req, res, next) => {
+//this middleware tests to see if the username and password combination is allowed to be saved
+userController.testSignupCreds = (req, res, next) => {
     const {username, password} = req.body.user;
     console.log(password)
     const usernameReg = new RegExp("^(?=.*[!@#$%^&*()_+=[]{};':\",./<>?~`])$");
@@ -35,8 +35,6 @@ userController.testCreds = (req, res, next) => {
     next();
 };
 
-
-
 userController.createUser = async (req, res, next) => {
    const {username, password} = res.locals.user
    console.log(username, password);
@@ -59,11 +57,22 @@ userController.createUser = async (req, res, next) => {
 
 
 userController.verifyUser = async (req, res, next)=>{
+    const {username, password} = req.body.user
     console.log(req.body.username);
-    //verify username exists for creating new user
-    // const user = await User.find({username: req.body.username})
 
-    // console.log(user);
+    try {
+        //verify username exists for creating new user
+        const user = await User.find({username: username})
+
+    }
+    catch (err) {
+        const error = {
+            log: 'userController.verifyUser',
+            status: 400,
+            message: {error: err.message}
+        };
+        next(error);
+    }
     // if (!user) return res.status(404).send({ message: "Invalid username" });
     // console.log('user password', user.password);
     // const passwordIsValid = await bcrypt.compare(
