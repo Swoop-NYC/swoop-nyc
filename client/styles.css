@@ -1,122 +1,136 @@
 * {
     font-family: 'Montserrat';
-    color: #4F4946;
     font-weight: 800;
   }
-
 body {
     display: flex;
-    background-color: #A5755F;
-    padding: 30px 30px;
+    background-color: rgba(80,80,220);
+    padding: 0px 35px;
 }
-
-#header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    height: 75px;
-    margin-bottom: 100px;
-}
-
-#header-logo {
-    height: 75px;
-    width: 75px;
-}
-
-#header-left {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-}
-
-#header-right {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    gap: 50px;
-    align-items: center;
-
-}
-
-#sideNav {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: #FFF9F0;
-    width: 40vw;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.503);
-}
-
-#post-form {
-    background-color: #FFF9F0;
-    display: flex;
-    height: 80vh;
-    width: 50vw;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 100px;
-    flex-direction: column;
-    border-radius: 5px;
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.505);
-
-}
-
 #root {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
 }
+/*
+color theme
+*/
+/*********************** Utility class***********************/
+.blue-white-wrapper{
+    background-color: rgb(10,10,255);
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    width: 200px;
+    box-shadow: 5px 5px 5px blue;
+}
+.white-blue-wrapper{
+    background-color: white;
+    color: rgb(20,20,255);
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 20px;
+    width: 80px;
+}
+.underline{
+    text-decoration: underline;
+}
+.big-line-height{
+    line-height: 1.5em;
+}
+.flex-center{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+/*********************** Homepage ***********************/
+.home-page-text-wrapper{
+    margin: 20px 0px;
+}
 
+
+/*********************** Header ***********************/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 97%;
+    height: 75px;
+    padding: 10px;
+}
+#header-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    align-items: center;
+}
+.hamburger-menu-button{
+    background-color: rgb(240,240,240);
+    border: none;
+    height: 70px;
+    border-radius: 20px;
+}
+.material-symbols-outlined{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+}
+/*********************** Side Nav ***********************/
+.sideNav {
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(10,10,250,1);
+    color:white;
+    width: 9rem;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.503);
+    padding-top: 40px;
+    border-radius: 20px;
+}
+/*********************** Create Post form ***********************/
+#post-form {
+    background-color: #FFF9F0;
+    display: flex;
+    height: 70vh;
+    width: 50vw;
+    /* justify-content: space-around; */
+    gap:20px;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.505);
+}
 .form-field {
     width: 90%;
     display: flex;
     justify-content: space-between;
-    max-width: inherit;
+    margin-top: 40px;
 }
-
 label {
-    font-size: 20px;
+    font-size: 16px;
 }
-
-#form-field-left {
-    display: flex;
-    width: 100%;
-    margin: auto;
-}
-
-#form-field-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width: 200px;
-    margin: auto;
-}
-
 input {
     width: 156px;
 }
-
-select {
-    width: 156px;
-}
-
-button {
-    background-color: #90E4c1;
-    border: none;
-}
-
+/*********************** Sign up***********************/
 #username {
     display: flex;
     gap: 30px;
     margin-left: 10px;
 }
-
 #login {
     margin-top: 20px;
     display: flex;
@@ -130,44 +144,75 @@ button {
     justify-content: center;
     align-items: center;
 }
-
 #password {
     display: flex;
     gap: 30px;
     margin-left: 10px;
 }
-
 span {
     height: 50px;
     width: 50px;
 }
-
-#user-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-}
-
-#items-box {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 600px;
-}
-
-.items-post {
-    border: 2px solid wheat;
-    max-width: 300px;
-}
-
-#filter-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#items-container{
+/*********************** Listing ***********************/
+.listing-wrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+.items-box {
+    display: flex;
+    /* border: 5px solid red; */
+    width: 100%;
+    position: relative;
+    top: 250px;
+}
+.card-image-wrapper{
+    position: relative;
+}
+.heart-svg{
+    position: absolute;
+    top: 5px;
+    right:5px;
+    transition: fill 0.5s
+}
+.heart-svg:hover path{
+    fill: rgb(222, 69, 69);
+}
+.filter-buttons {
+    /* border: 2px solid black; */
+    position: absolute;
+    top: 4vw;
+    left: 15%;
+    padding: 10px 30px;
+}
+.filter-by-borough{
+    margin-right: 20px;
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+.filter-by-location{
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
+}
+#filter-neighborhood{
+    font-size: 25px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-right:15px;
+}
+.items-post {
+    /* border: 2px solid yellow; */
+    padding: 15px;
+}
+/*********** ItemDiv to show each card ***********/
+.item-div{
+    border: 5px solid black;
+    background-color: rgb(20,20,130);
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 200px;
+    padding: 20px;
+    color: rgb(202, 220, 200);
 }

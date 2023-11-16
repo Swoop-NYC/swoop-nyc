@@ -6,7 +6,8 @@ import DatePicker from "react-datepicker";
 //import supabase API and set up connection to supabase storage of images
   //we've implemented row-level security to the database so the API key can be on the client side
 import { createClient } from '@supabase/supabase-js'
-const supabaseUrl = 'https://pvjgsahtonujtyehjsqv.supabase.co'
+// const supabaseUrl = 'https://bmvohouexqmijckbooug.supabase.co' // jacksons
+const supabaseUrl = 'https://sysmfptozoghrjoddqml.supabase.co'; // titans
 const supabaseKey = process.env.REACT_APP_SUPABASE
 const supabase = createClient(supabaseUrl, supabaseKey)
 
@@ -20,6 +21,9 @@ const CreatePost = () => {
   const [dropDate, setDropDate] = useState(new Date());
   //this piece of state will update the html for the following funciton
   const [neighboorhoodValues, setNeighboorhoodValues] = useState([]);
+
+  //make the home page goes away
+  // setShowHomePage(false)
 
   //this function makes a post reques to DB. Called within createItem()
   const sendToDB = async (item) => {
@@ -38,7 +42,7 @@ const CreatePost = () => {
         .getPublicUrl(item.image.name)
       
         //update value of item.image to the string of the url
-        item.image = imageUrl.data.publicUrl;
+        item.image = imageUrl.data.publicUrl; //TODO: remember to change this
         console.log('data received from image upload', imageUrl.data.publicUrl);
     } catch (err) {console.log(err);}
 
@@ -86,7 +90,7 @@ const CreatePost = () => {
 
   //this function will populate a new selector field in the form based on what borough is selected
   const neighboorhoodPicker = () => {
-    const borough = document.querySelector('#form-borough') 
+    const borough = document.querySelector('#form-borough')
     if (borough.value === 'Brooklyn') {
       setNeighboorhoodValues([
         <select id='form-neighboorhood'>
