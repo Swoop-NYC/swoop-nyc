@@ -1,8 +1,9 @@
 const User = require('../models/userModel')
+const Session = require('../models/sessionModel');
 const bcrypt = require('bcryptjs')
 const userController = {};
 
-//this middleware tests to see if the username and password combination is allowed to be saved
+//tests the username and password inputs to make sure they pass the requirements 
 userController.testSignupCreds = (req, res, next) => {
     const {username, password} = req.body.user;
     console.log(password)
@@ -34,14 +35,14 @@ userController.testSignupCreds = (req, res, next) => {
     console.log('made it to the end of the username and password check')
     next();
 };
-
+//creates a new document in the user collection
 userController.createUser = async (req, res, next) => {
    const {username, password} = res.locals.user
    console.log(username, password);
     const newUser = ({username: username, password:password});
     try {
         const DBresponse = await User.create(newUser);
-        res.locals.newUser = DBresponse;
+        res.locals.username = username;
         console.log(DBresponse)
     }
     catch (err) {
@@ -55,39 +56,76 @@ userController.createUser = async (req, res, next) => {
     next();
 }
 
-
-userController.verifyUser = async (req, res, next)=>{
+//checks to make sure the username exists and that the password matches whats in the DB
+userController.verifyUser = async (req, res, next)=> {
     const {username, password} = req.body.user
-    console.log(req.body.username);
+    console.log('this is the username: ', username);
 
     try {
         //verify username exists for creating new user
-        const user = await User.find({username: username})
-
+        const user = await User.findOne({username: username})
+        if (user.password === password) {
+            console.log('password was correct')
+            res.locas.found = true;
+            res.locals.username = username;
+            res.locals.password = password;
+        }
+        else {
+            const error = {
+                log: 'userController.verifyUser',
+                status: 404,
+                message: {error: 'Could not find username or password.'}
+            };
+            next(error);
+        }
+        // const passwordIsValid = await bcrypt.compare(
+        next()
     }
     catch (err) {
         const error = {
             log: 'userController.verifyUser',
             status: 400,
+            message: {error: 'Could not find username or password.'}
+        };
+        next(error);
+    }
+};
+
+//creates a session and sends it back to the router 
+userController.createSession = async (req, res, next) => {
+    const username = res.locals.username;
+    try {
+        const DBresponse = await Session.create({cookieId: username})
+        res.local.cookieInfo = DBresponse.id;
+        next();
+    }
+    catch (err) {
+        const error = {
+            log: 'userController.createSession',
+            status: 400,
             message: {error: err.message}
         };
         next(error);
     }
-    // if (!user) return res.status(404).send({ message: "Invalid username" });
-    // console.log('user password', user.password);
-    // const passwordIsValid = await bcrypt.compare(
-    //     req.body.password, //plain string password
-    //     user.password //hashed password in db
-    //   );
+};
 
-    // if (!passwordIsValid) {
-    // return res.status(401).send({ message: "Invalid password" });
-    // }
+userController.verifyCookie = async (req, res, next) => {
+    const { session } = req.cookies;
 
-    // console.log('valid password', passwordIsValid);
-    next()
-}
-
+    try {
+        const DBresponse = await Session.findOne({cookieId: session})
+        res.locals.found = true;
+        next();
+    }
+    catch (err) {
+        const error = {
+            log: 'userController.verifyCookie',
+            status: 400,
+            message: {error: err.message}
+        };
+        next(error);
+    }
+};
 
 module.exports = userController;
 
