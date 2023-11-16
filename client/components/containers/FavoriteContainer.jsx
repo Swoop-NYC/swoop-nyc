@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const FavoriteContainer = () => {
+  //grab favItems arr from redux store and display this out
+  const favItems = useSelector()
   return (
     <div className='favouriteContainer'>
       <div className='text-header'>
