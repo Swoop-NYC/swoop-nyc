@@ -10,6 +10,8 @@ const Item = () => {
   const items = useSelector((state) => {
     return state.item.items;
   });
+
+  console.log('from item', items)
   const [itemDiv, setItemDiv] = useState([]);
   const [neighborhoodValues, setNeighborhoodValues] = useState([]);
   const filteredItems = useSelector((state) => {
@@ -21,20 +23,33 @@ const Item = () => {
   //   renderItemsComponent();
   // }, [items]); // this will render whenever a new item is added, state change
 
-  console.log('filteredItems: ', filteredItems); // Filtered items
-  console.log('items:', items); // ALL items
+  // console.log('filteredItems: ', filteredItems); // Filtered items
+  // console.log('items:', items); // ALL items
   // renderItems will check if theres items in the filteredItems array, if it is, it will renderthe filter. if there are no items in the filteredItems, it will render ALL listings(itemDiv)
   // console.log('length:', filteredItems.length)
 
   let renderItems = filteredItems.length > 0 ? filteredItems : itemDiv;
-  console.log('renderitems: ', renderItems);
+  // console.log('renderitems: ', renderItems);
   // console.log('renderItems: ', renderItems);
   // render();
 
+  function handleClickFav(id){
+    console.log(`${id} is being clicked!`)
+  }
+
 const renderItemsComponent = renderItems.map((item) => (
-  <div key={item.title} className='items-post'>
+  <div key={item._id} className='items-post'>
     <h4>{item.title}</h4>
-    <img src={item.image} style={{ height: '300px', width: '300px' }} />
+    <div className="card-image-wrapper">
+       <img src={item.image} style={{ height: '300px', width: '300px' }} />
+       <svg 
+       className='heart-svg'
+       xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+       onClick={() => handleClickFav(item._id)}
+       >
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="red" fill="none"/>
+      </svg>
+    </div>
     <p>
       {item.location[0]}, {item.location[1]}{' '}
     </p>
