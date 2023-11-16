@@ -7,7 +7,7 @@ itemController.createItem = (req, res, next) => {
         Item.create(req.body)
         .then((data) => {
             res.locals.newItem = data;
-            next();
+            return next();
         })
         .catch((err) => {
             return next({log: 'there is an error it itemController createItem', status: 404, message: {err: err.message}})

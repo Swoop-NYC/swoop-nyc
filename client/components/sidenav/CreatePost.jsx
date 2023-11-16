@@ -6,8 +6,9 @@ import DatePicker from "react-datepicker";
 //import supabase API and set up connection to supabase storage of images
   //we've implemented row-level security to the database so the API key can be on the client side
 import { createClient } from '@supabase/supabase-js'
-const supabaseUrl = 'https://sysmfptozoghrjoddqml.supabase.co';
-const supabaseKey = 'process.env.REACT_APP_SUPABASE'
+// const supabaseUrl = 'https://bmvohouexqmijckbooug.supabase.co' // jacksons
+const supabaseUrl = 'https://sysmfptozoghrjoddqml.supabase.co'; // titans
+const supabaseKey = process.env.REACT_APP_SUPABASE
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 //TODO: Add CSS for error message <p> tag 
